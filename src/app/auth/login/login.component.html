@@ -11,16 +11,12 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
         <!-- Email Field -->
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email address*</mat-label>
+          <mat-label>Username*</mat-label>
           <input matInput
                  formControlName="username"
-                 placeholder="Enter your email"
                  required>
           <mat-error *ngIf="loginForm.get('username')?.hasError('required')">
-            Email is required
-          </mat-error>
-          <mat-error *ngIf="loginForm.get('username')?.hasError('email')">
-            Please enter a valid email
+            Username is required
           </mat-error>
         </mat-form-field>
 
@@ -57,8 +53,9 @@
 
       <div class="divider">
         <mat-divider></mat-divider>
-        <span class="divider-text">or</span>
-        <mat-divider></mat-divider>
+        <img src="/orDivider.png"
+             alt="dividir"
+             class="dividir">        <mat-divider></mat-divider>
       </div>
 
       <button mat-stroked-button

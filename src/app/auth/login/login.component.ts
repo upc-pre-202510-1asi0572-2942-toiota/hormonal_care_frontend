@@ -18,31 +18,30 @@ export class LoginComponent {
     private router: Router
   ) {
     this.loginForm = this.fb.group({
-      username: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+      username: ['', [Validators.required]],
+      password: ['', [Validators.required]]
     });
   }
 
   onSubmit(): void {
     if (this.loginForm.valid) {
-      this.authService.login({
-        username: this.loginForm.value.username,
-        password: this.loginForm.value.password
-      }).subscribe({
-        next: () => {
-          this.router.navigate(['/dashboard']);
+      const credentials = {
+        username: this.loginForm.get('username')?.value,
+        password: this.loginForm.get('password')?.value
+      };
+
+      this.authService.login(credentials).subscribe({
+        next: (response) => {
+
         },
         error: (error) => {
           console.error('Login failed:', error);
-          // Aquí puedes mostrar un mensaje de error al usuario
         }
       });
     }
   }
 
   loginWithGoogle(): void {
-    // Implementación del login con Google
     console.log('Login with Google');
-    // this.authService.loginWithGoogle().subscribe(...);
   }
 }

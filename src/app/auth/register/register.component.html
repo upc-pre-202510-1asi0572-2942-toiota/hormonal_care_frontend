@@ -8,13 +8,12 @@
       <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
         <!-- Email Field -->
         <mat-form-field appearance="outline" class="full-width">
-          <mat-label>Email address*</mat-label>
-          <input matInput formControlName="email" placeholder="Enter your email" required>
-          <mat-error *ngIf="registerForm.get('email')?.hasError('required')">
-            Email is required
-          </mat-error>
-          <mat-error *ngIf="registerForm.get('email')?.hasError('email')">
-            Please enter a valid email
+          <mat-label>Username*</mat-label>
+          <input matInput
+                 formControlName="username"
+                 required>
+          <mat-error *ngIf="registerForm.get('username')?.hasError('required')">
+            Username is required
           </mat-error>
         </mat-form-field>
 

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Router } from '@angular/router';
 
@@ -18,18 +18,21 @@ interface AuthResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://tu-api.com/auth';
+  private apiUrl = 'http://localhost:8080';
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient, private router: Router) {}
 
   register(userData: { username: string; password: string; roles: string[] }): Observable<any> {
-    return this.http.post(`${this.apiUrl}/register`, userData);
+    return this.http.post(`${this.apiUrl}/api/v1/authentication/sign-up`, userData);
   }
 
   login(credentials: { username: string; password: string }): Observable<AuthResponse> {
-    return this.http.post<AuthResponse>(`${this.apiUrl}/login`, credentials).pipe(
+    const headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+
+    return this.http.post<AuthResponse>(`${this.apiUrl}/api/v1/authentication/sign-in`, credentials, { headers }).pipe(
       tap(response => {
+        console.log("error a revisar: ",response);
         localStorage.setItem('authToken', response.token);
         localStorage.setItem('currentUser', JSON.stringify({
           id: response.id,
@@ -44,7 +47,6 @@ export class AuthService {
       })
     );
   }
-
   logout(): void {
     localStorage.removeItem('authToken');
     localStorage.removeItem('currentUser');
