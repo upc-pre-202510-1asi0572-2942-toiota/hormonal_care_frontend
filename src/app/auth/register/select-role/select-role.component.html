@@ -1,0 +1,21 @@
+<div class="role-selection">
+  <h2>Selecciona tu rol</h2>
+
+  <div class="roles">
+    <img
+      src="/patient.png"
+      alt="Paciente"
+      [class.selected]="selectedRole === 'ROLE_PATIENT'"
+      (click)="selectRole('ROLE_PATIENT')"
+    />
+
+    <img
+      src="/doctor.png"
+      alt="Doctor"
+      [class.selected]="selectedRole === 'ROLE_DOCTOR'"
+      (click)="selectRole('ROLE_DOCTOR')"
+    />
+  </div>
+
+  <button [disabled]="!selectedRole" (click)="submit()">Continuar</button>
+</div>

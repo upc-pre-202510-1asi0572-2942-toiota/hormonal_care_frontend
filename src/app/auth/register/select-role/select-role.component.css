@@ -1,0 +1,22 @@
+.roles {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+img {
+  width: 150px;
+  cursor: pointer;
+  border: 3px solid transparent;
+  border-radius: 8px;
+  transition: border 0.3s;
+}
+
+img.selected {
+  border: 3px solid #007bff;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+}
