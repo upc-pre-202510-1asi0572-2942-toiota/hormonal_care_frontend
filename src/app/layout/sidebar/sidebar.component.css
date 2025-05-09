@@ -1,11 +1,10 @@
 .app-sidebar {
   width: 250px;
-  background-color: #f0f0f0;
+  background-color: #ffffff; /* Cambiado a blanco */
   height: 100vh;
   display: flex;
   flex-direction: column;
   padding: 16px;
-  border-right: 1px solid #ddd;
 }
 nav ul {
   list-style: none;

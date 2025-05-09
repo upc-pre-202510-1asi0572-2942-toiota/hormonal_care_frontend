@@ -7,16 +7,24 @@
   height: 60px;
   border-bottom: 1px solid #ddd;
 }
+
 .menu-button, .notification-button {
   background: none;
   border: none;
   font-size: 20px;
   cursor: pointer;
+  color: #333;
 }
+
+.menu-button i, .notification-button i {
+  font-size: 24px; /* Tamaño del ícono */
+}
+
 .logo {
   height: 40px;
   margin-right: 8px;
 }
+
 .user-avatar {
   height: 40px;
   border-radius: 50%;
