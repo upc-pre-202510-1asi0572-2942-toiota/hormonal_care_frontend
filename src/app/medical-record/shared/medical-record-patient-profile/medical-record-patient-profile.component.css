@@ -1,0 +1,23 @@
+.patient-profile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.patient-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.patient-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-details {
+  display: flex;
+  gap: 16px;
+  margin-top: 8px;
+}

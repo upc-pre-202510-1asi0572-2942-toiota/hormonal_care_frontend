@@ -1,0 +1,18 @@
+.menu {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #007bff;
+  font-weight: bold;
+}
+
+.menu a.active {
+  color: #0056b3;
+  border-bottom: 2px solid #0056b3;
+}
