@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {NgForOf} from '@angular/common';
-import {RouterLink} from '@angular/router';
+import {RouterLink, RouterLinkActive} from '@angular/router';
 
 @Component({
   selector: 'app-medical-record-menu',
   templateUrl: './medical-record-menu.component.html',
   imports: [
     NgForOf,
-    RouterLink
+    RouterLink,
+    RouterLinkActive
   ],
   styleUrls: ['./medical-record-menu.component.css']
 })

@@ -1,1 +1,8 @@
-<p>medical-record-external-reports works!</p>
+<div class="external-reports">
+  <div class="report-box" *ngFor="let report of reports">
+    <span class="report-date">{{ report.date }}</span>
+    <button class="download-button">
+      <i class="fa fa-download"></i>
+    </button>
+  </div>
+</div>

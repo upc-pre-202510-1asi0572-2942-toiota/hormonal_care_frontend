@@ -39,18 +39,16 @@ import { MedicalRecordDiagnosisTreatmentComponent } from './medical-record/medic
 import { MedicalRecordMedicalTestsComponent } from './medical-record/medical-record-medical-tests/medical-record-medical-tests.component';
 import { MedicalRecordExternalReportsComponent } from './medical-record/medical-record-external-reports/medical-record-external-reports.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     SelectRoleComponent,
-
-    MedicalRecordPatientHistoryComponent,
     MedicalRecordDiagnosisTreatmentComponent,
     MedicalRecordMedicalTestsComponent,
-    MedicalRecordExternalReportsComponent,
+
+
     //MainLayoutComponent,
     //HeaderComponent,
     //SidebarComponent,
@@ -78,6 +76,9 @@ import { MedicalRecordExternalReportsComponent } from './medical-record/medical-
     MedicalRecordComponent,
     MedicalRecordPatientProfileComponent,
     MedicalRecordMenuComponent,
+    MedicalRecordPatientHistoryComponent,
+    MedicalRecordExternalReportsComponent
+
 
   ],
   providers: [

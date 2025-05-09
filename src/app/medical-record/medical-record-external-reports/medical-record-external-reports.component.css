@@ -1,0 +1,41 @@
+.external-reports {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+.report-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  background-color: #EDECEC;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.report-date {
+  font-size: 14px;
+  color: #333;
+}
+
+.download-button {
+  background-color: #40535B;
+  color: #fff;
+  border: none;
+  padding: 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-button i {
+  font-size: 16px;
+}
+
+.download-button:hover {
+  background-color: #2c3e50;
+}
