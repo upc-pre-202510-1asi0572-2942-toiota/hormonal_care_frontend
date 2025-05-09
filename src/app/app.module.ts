@@ -19,19 +19,28 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HeaderComponent } from './layout/header/header.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { HomeComponent } from './home/home/home.component';
 
 // Services and Interceptors
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRoleComponent} from './auth/register/select-role/select-role.component';
+import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    SelectRoleComponent
+    SelectRoleComponent,
+    //MainLayoutComponent,
+    //HeaderComponent,
+    //SidebarComponent,
+    //HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -48,7 +57,11 @@ import {SelectRoleComponent} from './auth/register/select-role/select-role.compo
     MatDividerModule,
     MatIconModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+
+    //Standalone Components
+    MainLayoutComponent,
+
   ],
   providers: [
     AuthService,

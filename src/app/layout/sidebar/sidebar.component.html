@@ -1,0 +1,18 @@
+<aside class="app-sidebar">
+  <nav>
+    <ul>
+      <li><button>🏠 Home</button></li>
+      <li><button>👥 Patients</button></li>
+      <li><button>📅 Schedule</button></li>
+    </ul>
+  </nav>
+  <div class="patients-section">
+    <h3>Your Patients</h3>
+    <ul>
+      <li *ngFor="let patient of [1, 2, 3, 4]">Patient {{ patient }}</li>
+    </ul>
+  </div>
+  <div class="settings-section">
+    <button>⚙️ Settings</button>
+  </div>
+</aside>
