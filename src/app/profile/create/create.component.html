@@ -1,0 +1,80 @@
+<div class="container">
+  <h2>Crear Perfil</h2>
+
+  <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+
+    <!-- Campos comunes -->
+    <div>
+      <label>Nombres:</label>
+      <input type="text" formControlName="firstName" required />
+    </div>
+
+    <div>
+      <label>Apellidos:</label>
+      <input type="text" formControlName="lastName" required />
+    </div>
+
+    <div>
+      <label>Género:</label>
+      <select formControlName="gender" required>
+        <option value="" disabled selected>Seleccione</option>
+        <option value="MASCULINO">Masculino</option>
+        <option value="FEMENINO">Femenino</option>
+        <option value="OTRO">Otro</option>
+      </select>
+    </div>
+
+    <div>
+      <label>Teléfono:</label>
+      <input type="text" formControlName="phoneNumber" required />
+    </div>
+
+    <div>
+      <label>Imagen (URL):</label>
+      <input type="text" formControlName="image" />
+    </div>
+
+    <div>
+      <label>Fecha de nacimiento:</label>
+      <input type="date" formControlName="birthday" required />
+    </div>
+
+    <!-- Solo para doctores -->
+    <ng-container *ngIf="role === 'ROLE_DOCTOR'">
+      <div>
+        <label>Número de colegiatura:</label>
+        <input type="number" formControlName="professionalIdentificationNumber" required />
+      </div>
+
+      <div>
+        <label>Subespecialidad:</label>
+        <input type="text" formControlName="subSpecialty" required />
+      </div>
+    </ng-container>
+
+    <!-- Solo para pacientes -->
+    <ng-container *ngIf="role === 'ROLE_PATIENT'">
+      <div>
+        <label>Tipo de sangre:</label>
+        <input type="text" formControlName="typeOfBlood" required />
+      </div>
+
+      <div>
+        <label>Historia personal:</label>
+        <textarea formControlName="personalHistory" required></textarea>
+      </div>
+
+      <div>
+        <label>Historia familiar:</label>
+        <textarea formControlName="familyHistory" required></textarea>
+      </div>
+
+      <div>
+        <label>ID del Doctor:</label>
+        <input type="number" formControlName="doctorId" required />
+      </div>
+    </ng-container>
+
+    <button type="submit" [disabled]="profileForm.invalid">Guardar</button>
+  </form>
+</div>
