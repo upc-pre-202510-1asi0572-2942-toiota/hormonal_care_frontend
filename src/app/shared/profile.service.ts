@@ -51,4 +51,12 @@ export class ProfileService {
       data
     );
   }
+  createAppointment(data: any) {
+    return this.http.post(this.apiUrl+"/api/v1/medicalAppointment", data);
+  }
+  getPatientsByDoctor(doctorId: number) {
+    return this.http.get<any[]>(this.apiUrl+`/api/v1/medical-record/patient/doctor/${doctorId}`);
+  }
+
+
 }

@@ -40,6 +40,7 @@ import { MedicalRecordMedicalTestsComponent } from './medical-record/medical-rec
 import { MedicalRecordExternalReportsComponent } from './medical-record/medical-record-external-reports/medical-record-external-reports.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
+import { PatientListComponent } from './home/patient-list/patient-list.component';
 
 
 @NgModule({
@@ -55,6 +56,7 @@ import { CreateComponent } from './profile/create/create.component';
     MedicalRecordExternalReportsComponent,
     ProfileComponent,
     CreateComponent,
+    PatientListComponent,
     //MainLayoutComponent,
     //HeaderComponent,
     //SidebarComponent,
