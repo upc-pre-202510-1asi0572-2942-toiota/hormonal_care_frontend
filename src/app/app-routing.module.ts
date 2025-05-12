@@ -1,29 +1,19 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
-
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import {SelectRoleComponent} from './auth/register/select-role/select-role.component'
 const routes: Routes = [
-  {
-    path: '',
-    component: MainLayoutComponent,
-    children: [
-      {
-        path: '',
-        redirectTo: 'medical-record',
-        pathMatch: 'full'
-      },
-      {
-        path: 'medical-record',
-        loadChildren: () =>
-          import('./medical-record/medical-record.module').then(m => m.MedicalRecordModule)
-      }
-    ]
-  }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'select-role', component: SelectRoleComponent },
+
+
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
