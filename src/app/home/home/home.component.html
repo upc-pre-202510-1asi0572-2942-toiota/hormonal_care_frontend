@@ -1,0 +1,9 @@
+<mat-card>
+  <h2>Pacientes con cita hoy</h2>
+  <mat-list>
+    <mat-list-item *ngFor="let patient of patientsToday">
+      {{ patient.patientRecordId }}
+      <button mat-button color="primary" (click)="abrirMeet(patient)">Unirse a Meet</button>
+    </mat-list-item>
+  </mat-list>
+</mat-card>
