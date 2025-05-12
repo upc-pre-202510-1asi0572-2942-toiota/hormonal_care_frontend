@@ -30,24 +30,41 @@ export interface PatientProfile {
 @Injectable({
   providedIn: 'root'
 })
-export class ProfileService {
+export class CommonService {
   constructor(private http: HttpClient) {}
   private apiUrl = 'http://localhost:8080';
+  private reorderDoctorProfile(profile: DoctorProfile): DoctorProfile {
+    return {
+      firstName: profile.firstName,
+      lastName: profile.lastName,
+      gender: profile.gender,
+      phoneNumber: profile.phoneNumber,
+      image: profile.image,
+      birthday: profile.birthday,
+      userId: profile.userId,
+      professionalIdentificationNumber: profile.professionalIdentificationNumber,
+      subSpecialty: profile.subSpecialty
+    };
+  }
+
   getProfileByUserId(userId: number) {
     return this.http.get(this.apiUrl+`/api/v1/profile/profile/userId/${userId}`);
   }
   /** Crea perfil de doctor */
   createDoctorProfile(data: DoctorProfile): Observable<DoctorProfile> {
+
+    const orderedData = this.reorderDoctorProfile(data);
+
     return this.http.post<DoctorProfile>(
-      `${this.apiUrl}/doctor/doctor`,
-      data
+      this.apiUrl+`/api/v1/doctor/doctor`,
+      orderedData
     );
   }
 
   /** Crea perfil de paciente */
   createPatientProfile(data: PatientProfile): Observable<PatientProfile> {
     return this.http.post<PatientProfile>(
-      `${this.apiUrl}/medical-record/patient`,
+      `${this.apiUrl}/api/v1/medical-record/patient`,
       data
     );
   }

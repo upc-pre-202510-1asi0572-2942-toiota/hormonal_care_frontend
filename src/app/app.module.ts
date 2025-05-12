@@ -30,6 +30,8 @@ import {SelectRoleComponent} from './auth/register/select-role/select-role.compo
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
+import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
+import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +40,7 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
     SelectRoleComponent,
     ProfileComponent,
     CreateComponent,
+    MedicalAppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,17 +61,17 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
     MatSnackBarModule,
     HomeComponent,
     PatientListComponent,
+    MatDatepickerInput,
+    MatDatepickerToggle,
+    MatDatepicker,
 
 
   ],
   providers: [
     AuthService,
     AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
-      multi: true
-    }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+
   ],
   bootstrap: [AppComponent]
 })

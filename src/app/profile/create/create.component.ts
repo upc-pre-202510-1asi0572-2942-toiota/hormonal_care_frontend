@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {DoctorProfile, PatientProfile, ProfileService} from '../../shared/profile.service';
+import {DoctorProfile, PatientProfile, CommonService} from '../../shared/common.service';
 import {Router} from '@angular/router';
 
 @Component({
@@ -16,13 +16,18 @@ export class CreateComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private profileService: ProfileService,
+    private profileService: CommonService,
     private router: Router
   ) {}
   ngOnInit(): void {
     // Leer rol y userId
-    this.role = localStorage.getItem('role')!;
-    this.userId = Number(localStorage.getItem('userId'));
+    const userJson = localStorage.getItem('currentUser');
+    if (userJson) {
+      const user = JSON.parse(userJson);
+      this.role = user.role;
+      this.userId = user.id;
+
+    }
 
     // Inicializar form según rol
     if (this.role === 'ROLE_DOCTOR') {
@@ -56,11 +61,14 @@ export class CreateComponent implements OnInit {
     if (this.profileForm.invalid) return;
 
     if (this.role === 'ROLE_DOCTOR') {
+      const birthdayISO = new Date(this.profileForm.value.birthday + 'T00:00:00Z').toISOString();
+
       const payload: DoctorProfile = {
         ...this.profileForm.value,
-        userId: this.userId
-      };
-
+        userId: this.userId,
+        birthday: birthdayISO, // Fecha en formato ISO
+        };
+      console.log('Error creando perfil paciente:',payload)
       this.profileService.createDoctorProfile(payload).subscribe({
         next: () => this.router.navigate(['/home']),
         error: err => console.error('Error creando perfil doctor:', err)

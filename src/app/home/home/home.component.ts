@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ProfileService} from '../../shared/profile.service';
+import {CommonService} from '../../shared/common.service';
 import {MatList, MatListItem} from '@angular/material/list';
 import {MatCard} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
+import {NgForOf} from '@angular/common';
 
 @Component({
   selector: 'app-home',
@@ -11,7 +12,8 @@ import {MatButton} from '@angular/material/button';
     MatListItem,
     MatCard,
     MatList,
-    MatButton
+    MatButton,
+    NgForOf
   ],
   styleUrls: ['./home.component.css']
 })
@@ -20,7 +22,7 @@ export class HomeComponent implements OnInit {
   doctorId = Number(localStorage.getItem('userId'));
   private _patient: String | undefined;
 
-  constructor(private patientService: ProfileService) {}
+  constructor(private patientService: CommonService) {}
 
   ngOnInit(): void {
     this.patientService.getPatientsByDoctor(this.doctorId).subscribe(patients => {

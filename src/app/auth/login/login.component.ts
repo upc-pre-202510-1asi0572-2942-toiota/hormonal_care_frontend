@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../auth.service';
 import {Router} from '@angular/router';
-import {ProfileService} from '../../shared/profile.service';
+import {CommonService} from '../../shared/common.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +18,7 @@ export class LoginComponent {
     private fb: FormBuilder,
     private authService: AuthService,
     private router: Router,
-    private profileService: ProfileService
+    private profileService: CommonService
   ) {
     this.loginForm = this.fb.group({
       username: ['', [Validators.required]],
