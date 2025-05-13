@@ -1,3 +1,32 @@
-.home-page {
-  padding: 16px;
+/* Asegura que todo ocupe el 100% de la pantalla */
+:host {
+  display: block;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: 240px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: auto;
+}
+
+.main-content {
+  padding: 1rem;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.patient-card {
+  margin-bottom: 1rem;
 }

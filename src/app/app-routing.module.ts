@@ -5,6 +5,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import {SelectRoleComponent} from './auth/register/select-role/select-role.component'
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
+import {HomeComponent} from './home/home/home.component';
 
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 const routes: Routes = [
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   {path : 'profile/create', component: CreateComponent},
   {path: 'medical-appointment', component: MedicalAppointmentComponent},
+  {path: 'home', component: HomeComponent},
 
 
 

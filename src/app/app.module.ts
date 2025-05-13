@@ -32,6 +32,8 @@ import { CreateComponent } from './profile/create/create.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
+import { SidebarComponent } from './shared/public/sidebar/sidebar.component';
+import {MatSidenavContainer} from '@angular/material/sidenav';
 @NgModule({
   declarations: [
     AppComponent,
@@ -59,20 +61,22 @@ import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/m
     MatIconModule,
     MatSelectModule,
     MatSnackBarModule,
-    HomeComponent,
     PatientListComponent,
     MatDatepickerInput,
     MatDatepickerToggle,
     MatDatepicker,
-
+    SidebarComponent,
+    HomeComponent,
+    MatSidenavContainer
 
   ],
   providers: [
     AuthService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
 
   ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

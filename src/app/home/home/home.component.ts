@@ -1,21 +1,27 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonService} from '../../shared/common.service';
-import {MatList, MatListItem} from '@angular/material/list';
-import {MatCard} from '@angular/material/card';
+import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
-
+import {MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material/sidenav';
+import {SidebarComponent} from '../../shared/public/sidebar/sidebar.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
+  styleUrls: ['./home.component.css'],
+  standalone: true,
+
   imports: [
-    MatListItem,
     MatCard,
-    MatList,
     MatButton,
-    NgForOf
+    NgForOf,
+    MatSidenavContainer,
+    MatCardTitle,
+    MatCardContent,
+    SidebarComponent,
+    MatSidenav,
+    MatSidenavModule
   ],
-  styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
   patientsToday: any[] = [];
