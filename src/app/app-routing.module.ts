@@ -4,6 +4,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import {SelectRoleComponent} from './auth/register/select-role/select-role.component'
 import {ChatComponent} from './chat/chat.component';
+import { NotificationComponent } from './notification/notification.component';
 
 
 const routes: Routes = [
@@ -11,7 +12,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'select-role', component: SelectRoleComponent },
-  { path: 'chat', component: ChatComponent}
+  { path: 'chat', component: ChatComponent},
+  { path: 'notifications', component: NotificationComponent}
 
 
 ];

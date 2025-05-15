@@ -22,6 +22,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SelectRoleComponent } from './auth/register/select-role/select-role.component';
 import { ChatComponent } from './chat/chat.component';
+import {NotificationComponent} from './notification/notification.component';
 import { CommonModule } from '@angular/common';
 
 // Services and Interceptors
@@ -29,13 +30,15 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
     SelectRoleComponent,
-    ChatComponent
+    ChatComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
