@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 // Angular Material Modules
 import { MatCardModule } from '@angular/material/card';
@@ -13,25 +13,29 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 // Components
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SelectRoleComponent } from './auth/register/select-role/select-role.component';
+import { ChatComponent } from './chat/chat.component';
+import { CommonModule } from '@angular/common';
 
 // Services and Interceptors
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
-import {SelectRoleComponent} from './auth/register/select-role/select-role.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    SelectRoleComponent
+    SelectRoleComponent,
+    ChatComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,8 @@ import {SelectRoleComponent} from './auth/register/select-role/select-role.compo
     HttpClientModule,
     ReactiveFormsModule,
     AppRoutingModule,
-
+    FormsModule,
+    CommonModule,
     // Angular Material Modules
     MatCardModule,
     MatFormFieldModule,
@@ -48,7 +53,8 @@ import {SelectRoleComponent} from './auth/register/select-role/select-role.compo
     MatDividerModule,
     MatIconModule,
     MatSelectModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatAutocompleteModule
   ],
   providers: [
     AuthService,

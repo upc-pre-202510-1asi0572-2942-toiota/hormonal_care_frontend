@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="chat-list mat-elevation-z5">
+    <div class="search-input">
+      <mat-form-field>
+        <input matInput placeholder="Buscar chats..."
+               [formControl]="searchControl"
+               [matAutocomplete]="users"/>
+      </mat-form-field>
+      <mat-autocomplete #users="matAutocomplete">
+        <mat-option>Doctor 1</mat-option>
+        <mat-option>Doctor 2</mat-option>
+        <mat-option>Doctor 3</mat-option>
+      </mat-autocomplete>
+    </div>
+    <div class="chat-item" *ngFor="let chat of chats">
+      <div class="chat-avatar">
+        <mat-icon>account_circle</mat-icon>
+      </div>
+      <button class="chat-info" (click)="onChatClick(chat)">
+        <h4>{{ chat.name }}</h4>
+        <p>{{ chat.lastMessage }}</p>
+      </button>
+    </div>
+
+
+  </div>
+  <div class="container">
+    <div class="messages mat-elevation-z5">
+      <div class="messages-header">
+        <h3>Doctor 1</h3>
+        <p>En línea</p>
+      </div>
+      <div class="messages-body">
+        <div class="message received">
+          <p>Hola, ¿cómo te sientes hoy?</p>
+          <span class="timestamp">10:00 AM</span>
+        </div>
+        <div class="message sent">
+          <p>Me siento mucho mejor, gracias.</p>
+          <span class="timestamp">10:02 AM</span>
+        </div>
+      </div>
+      <div class="messages-input">
+        <mat-form-field class="input-field">
+          <input matInput placeholder="Escribe un mensaje...">
+        </mat-form-field>
+        <button mat-icon-button color="primary">
+          <mat-icon>send</mat-icon>
+        </button>
+      </div>
+    </div>
+
+  </div>
+</div>

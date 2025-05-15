@@ -1,0 +1,93 @@
+.container{
+  display: flex;
+  height: calc(100vh - 64px);
+
+}
+
+.chat-list{
+  width: 40%;
+  margin: 16px;
+  background:lightblue;
+  border-radius: 16px;
+
+}
+
+
+.messages {
+  flex: 1; /* Ocupa el espacio disponible */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px; /* Espaciado interno */
+  background: #f9f9f9; /* Fondo claro */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+.messages-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px; /* Espaciado inferior */
+  border-bottom: 1px solid #ccc; /* Línea divisoria */
+}
+
+
+
+.messages-body {
+  flex: 1; /* Ocupa el espacio disponible */
+  overflow-y: auto; /* Habilita el scroll si es necesario */
+  padding: 16px; /* Espaciado interno */
+  gap: 12px; /* Espaciado entre mensajes */
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  max-width: 70%; /* Limita el ancho de los mensajes */
+  padding: 12px; /* Espaciado interno */
+  border-radius: 8px; /* Bordes redondeados */
+  margin-bottom: 8px; /* Espaciado inferior */
+}
+
+.message.received {
+  background: #e0e0e0; /* Fondo para mensajes recibidos */
+  align-self: flex-start; /* Alinea a la izquierda */
+}
+
+.message.sent {
+  background: #d1e7dd; /* Fondo para mensajes enviados */
+  align-self: flex-end; /* Alinea a la derecha */
+}
+
+
+.timestamp {
+  font-size: 0.8rem; /* Tamaño de fuente pequeño */
+  color: #888; /* Color gris */
+  margin-top: 4px; /* Espaciado superior */
+}
+
+.messages-input {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Espaciado entre el campo de entrada y el botón */
+  padding-top: 16px; /* Espaciado superior */
+  border-top: 1px solid #ccc; /* Línea divisoria */
+}
+
+.search-input{
+  margin:24px;
+}
+
+.chat-info {
+  all: unset; /* Elimina los estilos predeterminados del botón */
+  display: block; /* Asegura que se comporte como un bloque */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  padding: 8px; /* Espaciado interno */
+}
+
+.chat-info:hover {
+  background-color: #f0f0f0; /* Efecto hover opcional */
+  border-radius: 8px; /* Bordes redondeados */
+}
+
+
