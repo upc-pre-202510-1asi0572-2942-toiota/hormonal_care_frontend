@@ -29,6 +29,7 @@ import { CommonModule } from '@angular/common';
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
+import {PaymentComponent} from './payment/payment.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { AuthInterceptor } from './auth/auth.interceptor';
     RegisterComponent,
     SelectRoleComponent,
     ChatComponent,
-    NotificationComponent
+    NotificationComponent,
+    PaymentComponent
   ],
   imports: [
     BrowserModule,

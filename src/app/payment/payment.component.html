@@ -1,0 +1,41 @@
+<div class="payment-container">
+  <!-- Mostrar el monto a pagar antes de presionar el botón -->
+  <div class="payment-header" *ngIf="!showPaymentForm">
+    <h2>Monto a pagar</h2>
+    <p class="amount">{{ amountToPay | currency }}</p>
+    <button mat-raised-button color="primary" (click)="openPaymentForm()">Pagar</button>
+  </div>
+
+  <!-- Mostrar el formulario al presionar el botón -->
+  <div *ngIf="showPaymentForm" class="payment-form">
+    <h2>Detalles de pago</h2>
+    <form (ngSubmit)="confirmPayment()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput [(ngModel)]="paymentData.name" name="name" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput [(ngModel)]="paymentData.lastName" name="lastName" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Número de tarjeta</mat-label>
+        <input matInput [(ngModel)]="paymentData.cardNumber" name="cardNumber" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de expiración</mat-label>
+        <input matInput [(ngModel)]="paymentData.expirationDate" name="expirationDate" required />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>CVV</mat-label>
+        <input matInput [(ngModel)]="paymentData.cvv" name="cvv" required />
+      </mat-form-field>
+
+      <button mat-raised-button color="accent" type="submit">Confirmar</button>
+    </form>
+  </div>
+</div>
