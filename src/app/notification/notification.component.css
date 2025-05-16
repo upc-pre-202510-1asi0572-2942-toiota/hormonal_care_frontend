@@ -1,9 +1,20 @@
 .notification-container {
   padding: 16px;
-  background: #f9f9f9;
   border-radius: 8px;
   max-width: 600px;
   margin: 0 auto;
+  background-color: #f3e5f5; /* Fondo violeta claro */
+  border: 1px solid #ab47bc; /* Borde púrpura */
+  color: #6a1b9a;
+}
+
+
+.notification-title {
+  color: #8e24aa; /* Título púrpura */
+}
+
+.notification-message {
+  color: #7b1fa2; /* Mensaje morado */
 }
 
 .notification-container h2 {
