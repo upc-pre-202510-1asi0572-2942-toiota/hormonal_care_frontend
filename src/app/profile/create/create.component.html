@@ -30,8 +30,8 @@
     </div>
 
     <div>
-      <label>Imagen (URL):</label>
-      <input type="text" formControlName="image" />
+      <label>Imagen (Archivo):</label>
+      <input type="file" (change)="onFileSelected($event)" required />
     </div>
 
     <div>
@@ -75,6 +75,6 @@
       </div>
     </ng-container>
 
-    <button type="submit" [disabled]="profileForm.invalid">Guardar</button>
+    <button type="submit" [disabled]="profileForm.invalid || !isFileSelected()">Guardar</button>
   </form>
 </div>

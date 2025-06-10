@@ -4,7 +4,6 @@ import {MatCard, MatCardContent, MatCardTitle} from '@angular/material/card';
 import {MatButton} from '@angular/material/button';
 import {NgForOf} from '@angular/common';
 import {MatSidenav, MatSidenavContainer, MatSidenavModule} from '@angular/material/sidenav';
-import {SidebarComponent} from '../../shared/public/sidebar/sidebar.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +17,6 @@ import {SidebarComponent} from '../../shared/public/sidebar/sidebar.component';
     MatSidenavContainer,
     MatCardTitle,
     MatCardContent,
-    SidebarComponent,
     MatSidenav,
     MatSidenavModule
   ],

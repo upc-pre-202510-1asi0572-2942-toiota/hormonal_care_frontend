@@ -13,6 +13,7 @@ export class CreateComponent implements OnInit {
   profileForm!: FormGroup;
   role!: string;
   userId!: number;
+  selectedFile: File | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -36,7 +37,6 @@ export class CreateComponent implements OnInit {
         lastName: ['', Validators.required],
         gender: ['', Validators.required],
         phoneNumber: ['', Validators.required],
-        image: ['', Validators.required],
         birthday: ['', Validators.required],
         professionalIdentificationNumber: ['', Validators.required],
         subSpecialty: ['', Validators.required]
@@ -47,7 +47,6 @@ export class CreateComponent implements OnInit {
         lastName: ['', Validators.required],
         gender: ['', Validators.required],
         phoneNumber: ['', Validators.required],
-        image: ['', Validators.required],
         birthday: ['', Validators.required],
         typeOfBlood: ['', Validators.required],
         personalHistory: ['', Validators.required],
@@ -56,28 +55,59 @@ export class CreateComponent implements OnInit {
       });
     }
   }
-
+  onFileSelected(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    if (input.files && input.files.length > 0) {
+      this.selectedFile = input.files[0];
+    }
+  }
+  isFileSelected(): boolean {
+    return this.selectedFile !== null;
+  }
   onSubmit(): void {
-    if (this.profileForm.invalid) return;
+    if (this.profileForm.invalid || !this.selectedFile) return;
+
+    // Formatear la fecha como ISO string
+    const birthdayISO = new Date(this.profileForm.value.birthday + 'T00:00:00Z').toISOString();
+
+    // Crear el objeto que contiene todos los datos
+    const basePayload: any = {
+      ...this.profileForm.value,
+      birthday: birthdayISO,
+      userId: this.userId,
+      image: this.selectedFile
+    };
 
     if (this.role === 'ROLE_DOCTOR') {
-      const birthdayISO = new Date(this.profileForm.value.birthday + 'T00:00:00Z').toISOString();
-
       const payload: DoctorProfile = {
-        ...this.profileForm.value,
-        userId: this.userId,
-        birthday: birthdayISO, // Fecha en formato ISO
-        };
-      console.log('Error creando perfil paciente:',payload)
+        firstName: basePayload.firstName,
+        lastName: basePayload.lastName,
+        gender: basePayload.gender,
+        phoneNumber: basePayload.phoneNumber,
+        birthday: basePayload.birthday,
+        userId: basePayload.userId,
+        image: basePayload.image,
+        professionalIdentificationNumber: basePayload.professionalIdentificationNumber,
+        subSpecialty: basePayload.subSpecialty
+      };
+
       this.profileService.createDoctorProfile(payload).subscribe({
         next: () => this.router.navigate(['/home']),
         error: err => console.error('Error creando perfil doctor:', err)
       });
-
     } else {
       const payload: PatientProfile = {
-        ...this.profileForm.value,
-        userId: this.userId
+        firstName: basePayload.firstName,
+        lastName: basePayload.lastName,
+        gender: basePayload.gender,
+        phoneNumber: basePayload.phoneNumber,
+        birthday: basePayload.birthday,
+        userId: basePayload.userId,
+        image: basePayload.image,
+        typeOfBlood: basePayload.typeOfBlood,
+        personalHistory: basePayload.personalHistory,
+        familyHistory: basePayload.familyHistory,
+        doctorId: Number(basePayload.doctorId)
       };
 
       this.profileService.createPatientProfile(payload).subscribe({
@@ -86,5 +116,6 @@ export class CreateComponent implements OnInit {
       });
     }
   }
+
 }
 

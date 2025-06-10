@@ -32,7 +32,6 @@ import { CreateComponent } from './profile/create/create.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
-import { SidebarComponent } from './shared/public/sidebar/sidebar.component';
 import {MatSidenavContainer} from '@angular/material/sidenav';
 @NgModule({
   declarations: [
@@ -65,7 +64,6 @@ import {MatSidenavContainer} from '@angular/material/sidenav';
     MatDatepickerInput,
     MatDatepickerToggle,
     MatDatepicker,
-    SidebarComponent,
     HomeComponent,
     MatSidenavContainer
 
