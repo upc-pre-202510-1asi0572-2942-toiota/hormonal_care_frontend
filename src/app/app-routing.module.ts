@@ -22,6 +22,7 @@ const routes: Routes = [
     component: MainLayoutComponent,
     children: [
       { path: '', component: HomeComponent },
+      { path: 'patient/:id', component: ProfileComponent }
     ],
   },
 ];
