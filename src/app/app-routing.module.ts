@@ -8,6 +8,7 @@ import { CreateComponent } from './profile/create/create.component';
 import { HomeComponent } from './home/home/home.component';
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import {NotFoundComponent} from './shared/public/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'patient/:id', component: ProfileComponent }
     ],
   },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({

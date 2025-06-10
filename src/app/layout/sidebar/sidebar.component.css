@@ -32,6 +32,13 @@ nav ul li a:hover {
 .patients-section ul li a {
   color: #000;
 }
-.settings-section {
-  margin-top: auto;
+.settings-section a {
+  color: #000;
+  text-decoration: none;
+}
+
+.settings-section a:visited,
+.settings-section a:active,
+.settings-section a:hover {
+  color: #000;
 }

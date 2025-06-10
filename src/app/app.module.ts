@@ -33,6 +33,7 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
 import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatSidenavContainer} from '@angular/material/sidenav';
+import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import {MatSidenavContainer} from '@angular/material/sidenav';
     ProfileComponent,
     CreateComponent,
     MedicalAppointmentComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
