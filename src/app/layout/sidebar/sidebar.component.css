@@ -1,6 +1,6 @@
 .app-sidebar {
   width: 250px;
-  background-color: #ffffff; /* Cambiado a blanco */
+  background-color: #ffffff;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,10 +13,17 @@ nav ul {
 nav ul li {
   margin-bottom: 16px;
 }
-.patients-section {
-
-
+nav ul li a {
+  color: #000;
 }
+nav ul li a:visited,
+nav ul li a:active,
+nav ul li a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+
 
 .patients-section ul {
   list-style-type: none;

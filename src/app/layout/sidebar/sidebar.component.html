@@ -5,9 +5,21 @@
 
   <nav>
     <ul>
-      <li><i class="material-icons">home</i> Home</li>
-      <li><i class="material-icons">groups</i> Patients</li>
-      <li><i class="material-icons">calendar_month</i> Schedule</li>
+      <li>
+        <a routerLink="/home" routerLinkActive="router-link-active">
+          <i class="material-icons">home</i> Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="router-link-active">
+          <i class="material-icons">groups</i> Patients
+        </a>
+      </li>
+      <li>
+        <a routerLink="/medical-appointment" routerLinkActive="router-link-active">
+          <i class="material-icons">calendar_month</i> Schedule
+        </a>
+      </li>
     </ul>
   </nav>
 
@@ -22,7 +34,9 @@
   </div>
 
   <div class="settings">
-    <i class="material-icons">settings</i> Settings
+    <a routerLink="/settings">
+      <i class="material-icons">settings</i> Settings
+    </a>
   </div>
 
   <footer>
