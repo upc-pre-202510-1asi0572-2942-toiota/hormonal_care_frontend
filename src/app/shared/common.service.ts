@@ -121,5 +121,10 @@ export class CommonService {
     return this.http.get<any[]>(this.apiUrl+`/api/v1/medical-record/patient/doctor/${doctorId}`);
   }
 
-
+  getPatientsByDoctorId(doctorId: number): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/medical-record/patient/doctor/${doctorId}`);
+  }
+  getProfileById(profileId: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/api/v1/profile/${profileId}`);
+  }
 }
