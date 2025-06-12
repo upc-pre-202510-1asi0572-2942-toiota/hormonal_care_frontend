@@ -29,10 +29,6 @@
       <input type="text" formControlName="phoneNumber" required />
     </div>
 
-    <div>
-      <label>Imagen (Archivo):</label>
-      <input type="file" (change)="onFileSelected($event)" required />
-    </div>
 
     <div>
       <label>Fecha de nacimiento:</label>
@@ -59,22 +55,9 @@
         <input type="text" formControlName="typeOfBlood" required />
       </div>
 
-      <div>
-        <label>Historia personal:</label>
-        <textarea formControlName="personalHistory" required></textarea>
-      </div>
 
-      <div>
-        <label>Historia familiar:</label>
-        <textarea formControlName="familyHistory" required></textarea>
-      </div>
-
-      <div>
-        <label>Doctor’s phone number:</label>
-        <input type="number" formControlName="doctorId" required />
-      </div>
     </ng-container>
 
-    <button type="submit" [disabled]="profileForm.invalid || !isFileSelected()">Guardar</button>
+    <button type="submit" [disabled]="profileForm.invalid ">Guardar</button>
   </form>
 </div>

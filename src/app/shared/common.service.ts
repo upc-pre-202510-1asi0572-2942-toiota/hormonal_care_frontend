@@ -28,13 +28,13 @@ export interface PatientProfile {
   lastName: string;
   gender: string;
   phoneNumber: string;
-  image: File;
+  image: File|null;
   birthday: string;              // ISO string
   userId: number;
   typeOfBlood: string;
   personalHistory: string;
   familyHistory: string;
-  doctorId: number;
+  doctorId: number|null;
 }
 @Injectable({
   providedIn: 'root'
@@ -73,7 +73,8 @@ export class CommonService {
   /** Crea perfil de paciente */
   createPatientProfile(data: PatientProfile): Observable<any> {
     const formData = new FormData();
-    formData.append('file', data.image); // el archivo binario
+
+
 
     // Construir los query params
     let params = new HttpParams()
@@ -86,7 +87,7 @@ export class CommonService {
       .set('typeOfBlood', data.typeOfBlood)
       .set('personalHistory', data.personalHistory)
       .set('familyHistory', data.familyHistory)
-      .set('doctorId', data.doctorId.toString());
+
 
     return this.http.post<any>(
       `${this.apiUrl}/api/v1/medical-record/patient`,

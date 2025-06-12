@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonModule, NgForOf} from '@angular/common';
 import {RouterLink, RouterLinkActive} from '@angular/router';
 import {CommonService} from '../../shared/common.service';
 
@@ -7,30 +6,43 @@ import {CommonService} from '../../shared/common.service';
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
   imports: [
-    NgForOf,
     RouterLink,
     RouterLinkActive
   ],
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
-  patients: string[] = ['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'];
-
-  constructor(private commonService: CommonService) {}
+export class SidebarComponent implements OnInit{
+  userRole: string | null = null;
 
   ngOnInit(): void {
-    const doctorId = 0; // Reemplaza con el ID del doctor correspondiente
-    this.commonService.getPatientsByDoctorId(doctorId).subscribe((response) => {
-      if (response.length === 0) {
-        this.patients = ['Patient 1', 'Patient 2', 'Patient 3', 'Patient 4'];
-      } else {
-        this.patients = [];
-        response.forEach(patient => {
-          this.commonService.getProfileById(patient.profileId).subscribe(profile => {
-            this.patients.push(profile.fullName);
-          });
-        });
-      }
-    });
+    const currentUser = localStorage.getItem('currentUser');
+    if (currentUser) {
+      const parsedUser = JSON.parse(currentUser);
+      this.userRole = parsedUser.role;
+    }
   }
+  getPatientsLink(): string {
+    return this.userRole === 'ROLE_DOCTOR' ? '/patients' : '/doctors';
+  }
+
+  getPatientsText(): string {
+    return this.userRole === 'ROLE_DOCTOR' ? 'Patients' : 'Doctors';
+  }
+  constructor(private commonService: CommonService) {}
+  isLightMode: boolean = true;
+
+  toggleBackgroundColor(): void {
+    this.isLightMode = !this.isLightMode;
+    const sidebar = document.querySelector('.app-sidebar') as HTMLElement;
+    sidebar.style.backgroundColor = this.isLightMode ? '#ffffff' : '#333333'; // Fondo blanco o gris oscuro
+
+    const links = sidebar.querySelectorAll('a, i') as NodeListOf<HTMLElement>;
+    links.forEach(link => {
+      link.style.color = this.isLightMode ? '#000000' : '#ffffff'; // Texto e íconos negro o blanco
+    });
+
+    const footer = sidebar.querySelector('footer p') as HTMLElement;
+    footer.style.color = this.isLightMode ? '#000000' : '#ffffff'; // Texto del footer negro o blanco
+  }
+
 }
