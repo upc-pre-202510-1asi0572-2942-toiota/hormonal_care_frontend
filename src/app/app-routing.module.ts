@@ -1,29 +1,36 @@
-
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './auth/login/login.component';
+import { RegisterComponent } from './auth/register/register.component';
+import { SelectRoleComponent } from './auth/register/select-role/select-role.component';
+import { ProfileComponent } from './profile/profile.component';
+import { CreateComponent } from './profile/create/create.component';
+import { HomeComponent } from './home/home/home.component';
+import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
+import {NotFoundComponent} from './shared/public/not-found/not-found.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'select-role', component: SelectRoleComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'profile/create', component: CreateComponent },
+  { path: 'medical-appointment', component: MedicalAppointmentComponent },
   {
-    path: '',
+    path: 'home',
     component: MainLayoutComponent,
     children: [
-      {
-        path: '',
-        redirectTo: 'medical-record',
-        pathMatch: 'full'
-      },
-      {
-        path: 'medical-record',
-        loadChildren: () =>
-          import('./medical-record/medical-record.module').then(m => m.MedicalRecordModule)
-      }
-    ]
-  }
+      { path: '', component: HomeComponent },
+      { path: 'patient/:id', component: ProfileComponent }
+    ],
+  },
+  { path: '**', component: NotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}

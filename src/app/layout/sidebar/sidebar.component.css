@@ -1,6 +1,6 @@
 .app-sidebar {
   width: 250px;
-  background-color: #ffffff; /* Cambiado a blanco */
+  background-color: #ffffff;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -13,11 +13,44 @@ nav ul {
 nav ul li {
   margin-bottom: 16px;
 }
-.patients-section {
-  margin-top: 32px;
-  overflow-y: auto;
-  max-height: 200px;
+nav ul li a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
 }
-.settings-section {
-  margin-top: auto;
+nav ul li a:visited,
+nav ul li a:active,
+nav ul li a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+
+.patient-icon {
+  max-width: 40px;
+  max-height: 40px;
+  width: auto;
+  height: auto;
+}
+.patients-section ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+.patients-section ul li a {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+
+}
+.settings-section a {
+  color: #000;
+  text-decoration: none;
+}
+
+.settings-section a:visited,
+.settings-section a:active,
+.settings-section a:hover {
+  color: #000;
 }

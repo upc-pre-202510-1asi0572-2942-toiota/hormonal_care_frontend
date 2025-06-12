@@ -1,18 +1,45 @@
-<aside class="app-sidebar">
-    <nav>
-        <ul>
-            <li><button><i class="fa fa-home"></i> Home</button></li>
-            <li><button><i class="fa fa-users"></i> Patients</button></li>
-            <li><button><i class="fa fa-calendar"></i> Schedule</button></li>
-        </ul>
-    </nav>
-    <div class="patients-section">
-        <h3>Your Patients</h3>
-        <ul>
-            <li *ngFor="let patient of [1, 2, 3, 4]">Patient {{ patient }}</li>
-        </ul>
-    </div>
-    <div class="settings-section">
-        <button><i class="fa fa-cog"></i> Settings</button>
-    </div>
-</aside>
+<div class="app-sidebar">
+
+
+  <nav>
+    <ul>
+      <li>
+        <a routerLink="/home" routerLinkActive="router-link-active">
+          <i class="material-icons">home</i> Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="router-link-active">
+          <i class="material-icons">groups</i> Patients
+        </a>
+      </li>
+      <li>
+        <a routerLink="/medical-appointment" routerLinkActive="router-link-active">
+          <i class="material-icons">calendar_month</i> Schedule
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="patients-section">
+    <h4>Your patients</h4>
+    <ul>
+      <li *ngFor="let patient of patients">
+        <a [routerLink]="['/patient', patient]">
+          <img src="assets/patient-icon.png" alt="Patient" class="patient-icon" />
+          {{ patient }}
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="settings-section">
+    <a routerLink="/settings">
+      <i class="material-icons">settings</i> Settings
+    </a>
+  </div>
+
+  <footer>
+    <p>Copyright toiota 2025</p>
+  </footer>
+</div>

@@ -1,3 +1,21 @@
-<div class="home-page">
-  <h1>Welcome to HormonalCare</h1>
-</div>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav mode="side" opened class="sidenav">
+
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <div class="main-content">
+      <h2>Pacientes de Hoy</h2>
+      <mat-card *ngFor="let patient of patientsToday" class="patient-card">
+        <mat-card-title>{{ patient.name }}</mat-card-title>
+        <mat-card-content>
+          <p>{{ patient.details }}</p>
+          <button mat-raised-button color="primary" (click)="abrirMeet(patient.name)">
+            Iniciar Meet
+          </button>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
