@@ -49,23 +49,21 @@ export class CreateComponent implements OnInit {
         phoneNumber: ['', Validators.required],
         birthday: ['', Validators.required],
         typeOfBlood: ['', Validators.required],
-        personalHistory: ['', Validators.required],
-        familyHistory: ['', Validators.required],
-        doctorId: ['', Validators.required]
+
       });
     }
   }
-  onFileSelected(event: Event): void {
-    const input = event.target as HTMLInputElement;
-    if (input.files && input.files.length > 0) {
-      this.selectedFile = input.files[0];
-    }
-  }
-  isFileSelected(): boolean {
-    return this.selectedFile !== null;
-  }
+
+
   onSubmit(): void {
-    if (this.profileForm.invalid || !this.selectedFile) return;
+    if (this.profileForm.invalid) {
+      console.error('Formulario inválido:', this.profileForm.errors);
+      return;
+    }
+
+
+
+    console.log('Formulario válido, preparando datos para enviar...');
 
     // Formatear la fecha como ISO string
     const birthdayISO = new Date(this.profileForm.value.birthday + 'T00:00:00Z').toISOString();
@@ -77,6 +75,8 @@ export class CreateComponent implements OnInit {
       userId: this.userId,
       image: this.selectedFile
     };
+
+    console.log('Datos base:', basePayload);
 
     if (this.role === 'ROLE_DOCTOR') {
       const payload: DoctorProfile = {
@@ -91,8 +91,13 @@ export class CreateComponent implements OnInit {
         subSpecialty: basePayload.subSpecialty
       };
 
+      console.log('Payload para doctor:', payload);
+
       this.profileService.createDoctorProfile(payload).subscribe({
-        next: () => this.router.navigate(['/home']),
+        next: () => {
+          console.log('Perfil de doctor creado exitosamente.');
+          this.router.navigate(['/home']);
+        },
         error: err => console.error('Error creando perfil doctor:', err)
       });
     } else {
@@ -103,15 +108,20 @@ export class CreateComponent implements OnInit {
         phoneNumber: basePayload.phoneNumber,
         birthday: basePayload.birthday,
         userId: basePayload.userId,
-        image: basePayload.image,
+        image: new File([], ''),
         typeOfBlood: basePayload.typeOfBlood,
-        personalHistory: basePayload.personalHistory,
-        familyHistory: basePayload.familyHistory,
-        doctorId: Number(basePayload.doctorId)
+        personalHistory: '',
+        familyHistory: '',
+        doctorId: null
       };
 
+      console.log('Payload para paciente:', payload);
+
       this.profileService.createPatientProfile(payload).subscribe({
-        next: () => this.router.navigate(['/home']),
+        next: () => {
+          console.log('Perfil de paciente creado exitosamente.');
+          this.router.navigate(['/home']);
+        },
         error: err => console.error('Error creando perfil paciente:', err)
       });
     }

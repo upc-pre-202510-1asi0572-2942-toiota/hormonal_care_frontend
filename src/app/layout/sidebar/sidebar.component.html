@@ -1,6 +1,4 @@
 <div class="app-sidebar">
-
-
   <nav>
     <ul>
       <li>
@@ -9,37 +7,44 @@
         </a>
       </li>
       <li>
-        <a routerLink="/profile" routerLinkActive="router-link-active">
-          <i class="material-icons">groups</i> Patients
+        <a [routerLink]="getPatientsLink()" routerLinkActive="router-link-active">
+          <i class="material-icons">groups</i> {{ getPatientsText() }}
         </a>
       </li>
       <li>
-        <a routerLink="/medical-appointment" routerLinkActive="router-link-active">
+        <a routerLink="/schedule" routerLinkActive="router-link-active">
           <i class="material-icons">calendar_month</i> Schedule
+        </a>
+      </li>
+      <li>
+        <a routerLink="/chats" routerLinkActive="router-link-active">
+          <i class="material-icons">chat</i> Chats
+        </a>
+      </li>
+      <li>
+        <a routerLink="/notifications" routerLinkActive="router-link-active">
+          <i class="material-icons">notifications</i> Notifications
+        </a>
+      </li>
+      <li>
+        <a routerLink="/profile" routerLinkActive="router-link-active">
+          <i class="material-icons">person</i> Profile
+        </a>
+      </li>
+      <li>
+        <a (click)="toggleBackgroundColor()">
+          <i class="material-icons">light_mode</i> Light Mode
+        </a>
+      </li>
+      <li>
+        <a routerLink="/view-plans" routerLinkActive="router-link-active">
+          <i class="material-icons">grade</i> View Plans
         </a>
       </li>
     </ul>
   </nav>
 
-  <div class="patients-section">
-    <h4>Your patients</h4>
-    <ul>
-      <li *ngFor="let patient of patients">
-        <a [routerLink]="['/patient', patient]">
-          <img src="assets/patient-icon.png" alt="Patient" class="patient-icon" />
-          {{ patient }}
-        </a>
-      </li>
-    </ul>
-  </div>
-
-  <div class="settings-section">
-    <a routerLink="/settings">
-      <i class="material-icons">settings</i> Settings
-    </a>
-  </div>
-
   <footer>
-    <p>Copyright toiota 2025</p>
+    <p>Copyright toiota</p>
   </footer>
 </div>
