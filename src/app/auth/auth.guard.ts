@@ -15,10 +15,14 @@ export class AuthGuard implements CanActivate {
         this.router.navigate(['/access-denied']);
         return false;
       }
+
       return true;
     }
 
-    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+    // Si el usuario no está autenticado, redirigir siempre a login
+    if (state.url !== '/login') {
+      this.router.navigate(['/login']);
+    }
     return false;
   }
 }
