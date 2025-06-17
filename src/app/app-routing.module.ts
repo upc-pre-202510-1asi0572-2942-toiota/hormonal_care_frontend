@@ -6,7 +6,7 @@ import { SelectRoleComponent } from './auth/register/select-role/select-role.com
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
 import { HomeComponent } from './home/home/home.component';
-import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { AuthGuard } from './auth/auth.guard';
@@ -24,7 +24,7 @@ const routes: Routes = [
       { path: 'home', component: HomeComponent },
       { path: 'profile', component: ProfileComponent },
       { path: 'profile/create', component: CreateComponent },
-      { path: 'medical-appointment', component: MedicalAppointmentComponent },
+      { path: 'schedule', component: ScheduleComponent },
     ],
   },
   { path: '**', component: NotFoundComponent },

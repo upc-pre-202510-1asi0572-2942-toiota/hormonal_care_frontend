@@ -15,6 +15,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatMomentDateModule } from '@angular/material-moment-adapter';
+import { DateAdapter } from '@angular/material/core';
 
 // Components
 import { AppComponent } from './app.component';
@@ -30,10 +32,10 @@ import {SelectRoleComponent} from './auth/register/select-role/select-role.compo
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
-import { MedicalAppointmentComponent } from './medical-appointment/medical-appointment.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatSidenavContainer} from '@angular/material/sidenav';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
+import { ScheduleComponent } from './schedule/schedule/schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,8 +44,8 @@ import { NotFoundComponent } from './shared/public/not-found/not-found.component
     SelectRoleComponent,
     ProfileComponent,
     CreateComponent,
-    MedicalAppointmentComponent,
     NotFoundComponent,
+    ScheduleComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,13 +69,15 @@ import { NotFoundComponent } from './shared/public/not-found/not-found.component
     MatDatepickerToggle,
     MatDatepicker,
     HomeComponent,
-    MatSidenavContainer
+    MatSidenavContainer,
+    MatMomentDateModule
 
   ],
   providers: [
     AuthService,
     AuthGuard,
-    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    { provide: DateAdapter, useClass: MatMomentDateModule }
 
   ],
 
