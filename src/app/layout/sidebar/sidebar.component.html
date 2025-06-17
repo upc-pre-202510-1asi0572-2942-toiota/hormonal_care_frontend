@@ -3,48 +3,56 @@
     <ul>
       <li>
         <a routerLink="/home" routerLinkActive="router-link-active">
-          <i class="material-icons">home</i> Home
+          <i class="material-icons">home</i>
+          <span>Home</span>
         </a>
       </li>
       <li>
         <a [routerLink]="getPatientsLink()" routerLinkActive="router-link-active">
-          <i class="material-icons">groups</i> {{ getPatientsText() }}
+          <i class="material-icons">groups</i>
+          <span>{{ getPatientsText() }}</span>
         </a>
       </li>
       <li>
         <a routerLink="/schedule" routerLinkActive="router-link-active">
-          <i class="material-icons">calendar_month</i> Schedule
+          <i class="material-icons">calendar_month</i>
+          <span>Schedule</span>
         </a>
       </li>
       <li>
         <a routerLink="/chats" routerLinkActive="router-link-active">
-          <i class="material-icons">chat</i> Chats
+          <i class="material-icons">chat</i>
+          <span>Chats</span>
         </a>
       </li>
       <li>
         <a routerLink="/notifications" routerLinkActive="router-link-active">
-          <i class="material-icons">notifications</i> Notifications
+          <i class="material-icons">notifications</i>
+          <span>Notifications</span>
         </a>
       </li>
       <li>
         <a routerLink="/profile" routerLinkActive="router-link-active">
-          <i class="material-icons">person</i> Profile
+          <i class="material-icons">person</i>
+          <span>Profile</span>
         </a>
       </li>
       <li>
         <a (click)="toggleBackgroundColor()">
-          <i class="material-icons">light_mode</i> Light Mode
+          <i class="material-icons">light_mode</i>
+          <span>Light Mode</span>
         </a>
       </li>
       <li>
         <a routerLink="/view-plans" routerLinkActive="router-link-active">
-          <i class="material-icons">grade</i> View Plans
+          <i class="material-icons">grade</i>
+          <span>View Plans</span>
         </a>
       </li>
     </ul>
   </nav>
 
-  <footer>
+  <!-- <footer>
     <p>Copyright toiota</p>
-  </footer>
+  </footer> -->
 </div>

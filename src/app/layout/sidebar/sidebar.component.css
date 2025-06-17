@@ -1,56 +1,43 @@
 .app-sidebar {
-  width: 250px;
-  background-color: #ffffff;
+  width: 80px; /* Sidebar más angosto */
+  background-color: #ffffff; /* Fondo oscuro similar a YouTube */
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 16px;
+  align-items: center;
+  padding: 16px 0;
 }
+
 nav ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
+
 nav ul li {
   margin-bottom: 16px;
 }
+
 nav ul li a {
   display: flex;
   flex-direction: column;
+  align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: #000000; /* Color blanco para los íconos y texto */
+  font-size: 12px; /* Tamaño de texto más pequeño */
 }
-nav ul li a:visited,
-nav ul li a:active,
+
 nav ul li a:hover {
-  text-decoration: none;
-  color: #000;
+  color: #6c63ff; /* Color de hover */
 }
 
-
-.patient-icon {
-  max-width: 40px;
-  max-height: 40px;
-  width: auto;
-  height: auto;
-}
-.patients-section ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-.patients-section ul li a {
-  display: flex;
-  flex-direction: column;
-  text-decoration: none;
-  color: inherit;
-
-}
-.settings-section a {
-  color: #000;
-  text-decoration: none;
+nav ul li a.router-link-active {
+  color: #6c63ff; /* Color para el ícono activo */
 }
 
-.settings-section a:visited,
-.settings-section a:active,
-.settings-section a:hover {
-  color: #000;
-}
+/* footer {
+  margin-top: auto;
+  text-align: center;
+  color: #000000;
+  font-size: 10px;
+} */
