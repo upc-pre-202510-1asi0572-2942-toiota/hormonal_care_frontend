@@ -47,10 +47,10 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
     CreateComponent,
     NotFoundComponent,
     ScheduleComponent,
-    SearchPatientsComponent,
   ],
   imports: [
     BrowserModule,
+    SearchPatientsComponent,
     BrowserAnimationsModule,
     HttpClientModule,
     ReactiveFormsModule,

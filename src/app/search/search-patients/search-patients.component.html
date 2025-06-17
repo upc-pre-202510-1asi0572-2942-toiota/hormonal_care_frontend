@@ -1,1 +1,20 @@
-<p>search-patients works!</p>
+<div class="search-container">
+  <div class="search-header">
+    <input
+      type="text"
+      placeholder="Search"
+      class="search-input"
+    />
+  </div>
+  <div class="patient-list">
+    <div class="patient-card" *ngFor="let patient of filteredPatients">
+      <img [src]="patient.image" alt="Patient Image" class="patient-image" />
+      <div class="patient-info">
+        <p>{{ patient.fullName }}</p>
+        <p>{{ patient.gender }}</p>
+        <p>{{ patient.phoneNumber }}</p>
+      </div>
+      <button class="connect-button">Connect</button>
+    </div>
+  </div>
+</div>
