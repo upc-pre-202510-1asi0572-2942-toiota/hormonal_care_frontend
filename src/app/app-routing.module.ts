@@ -10,6 +10,7 @@ import { ScheduleComponent } from './schedule/schedule/schedule.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { AuthGuard } from './auth/auth.guard';
+import {SearchPatientsComponent} from './search/search-patients/search-patients.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
       { path: 'profile/create', component: CreateComponent },
       { path: 'schedule', component: ScheduleComponent },
+      { path: 'search-patients', component: SearchPatientsComponent },
     ],
   },
   { path: '**', component: NotFoundComponent },
