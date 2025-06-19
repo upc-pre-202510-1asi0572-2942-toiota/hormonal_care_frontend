@@ -15,7 +15,7 @@
   </div>
 
   <div class="patient-list" *ngIf="!loading">
-    <div class="patient-card" *ngFor="let profile of profiles">
+    <div class="patient-card" *ngFor="let profile of profiles" (click)="onCardClick(profile)">
       <img [src]="profile.image || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="Profile Image" class="patient-image" />
       <div class="patient-info">
         <p class="patient-name">{{ profile.fullName }}</p>

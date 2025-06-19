@@ -39,4 +39,8 @@ export class SearchPatientsComponent implements OnInit {
       this.profiles = [];
     }
   }
+
+  onCardClick(profile: Patient): void {
+    console.log('Card clicked:', profile);
+  }
 }
