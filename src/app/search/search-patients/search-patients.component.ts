@@ -1,30 +1,42 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+
 import { SearchPatientsService } from '../search-services/search-patients.service';
 import { Patient } from '../search-models/patient';
 
 @Component({
   selector: 'app-search-patients',
   templateUrl: './search-patients.component.html',
-  styleUrls: ['./search-patients.component.css']
+  styleUrls: ['./search-patients.component.css'],
+  standalone: true,
+  imports: [FormsModule, CommonModule]
 })
 export class SearchPatientsComponent implements OnInit {
-  patients: Patient[] = [];
-  filteredPatients: Patient[] = [];
+  searchQuery: string = '';
+  profiles: Patient[] = [];
+  loading: boolean = false;
 
-  constructor(private searchPatientsService: SearchPatientsService) {}
+  constructor(private searchService: SearchPatientsService) {}
 
-  ngOnInit(): void {
-    this.searchPatientsService.getPatients().subscribe((data: Patient[]) => {
-      this.patients = data;
-      this.filteredPatients = data; // Initialize filteredPatients with all patients
-    });
-  }
+  ngOnInit(): void {}
 
-  onSearch(searchText: string): void {
-    if (this.patients) { // Verificar que patients no sea nulo
-      this.filteredPatients = this.patients.filter(patient =>
-        patient.fullName && patient.fullName.toLowerCase().includes(searchText.toLowerCase()) // Verificar que fullName no sea nulo
+  onSearch(): void {
+    if (this.searchQuery.trim()) {
+      this.loading = true;
+      this.searchService.searchProfilesByName(this.searchQuery).subscribe(
+        (results) => {
+          this.profiles = results;
+          this.loading = false;
+        },
+        (error) => {
+          console.error('Error searching profiles:', error);
+          this.profiles = [];
+          this.loading = false;
+        }
       );
+    } else {
+      this.profiles = [];
     }
   }
 }

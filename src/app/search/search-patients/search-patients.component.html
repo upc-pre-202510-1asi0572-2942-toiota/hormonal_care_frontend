@@ -2,19 +2,24 @@
   <div class="search-header">
     <input
       type="text"
-      placeholder="Search"
+      placeholder="Press Enter to search profiles"
       class="search-input"
+      [(ngModel)]="searchQuery"
+      (keyup.enter)="onSearch()"
     />
   </div>
-  <div class="patient-list">
-    <div class="patient-card" *ngFor="let patient of filteredPatients">
-      <img [src]="patient.image" alt="Patient Image" class="patient-image" />
+
+  <div *ngIf="loading" class="preloader">
+    <p>Searching...</p>
+    <div class="spinner"></div>
+  </div>
+
+  <div class="patient-list" *ngIf="!loading">
+    <div class="patient-card" *ngFor="let profile of profiles">
+      <img [src]="profile.image || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="Profile Image" class="patient-image" />
       <div class="patient-info">
-        <p>{{ patient.fullName }}</p>
-        <p>{{ patient.gender }}</p>
-        <p>{{ patient.phoneNumber }}</p>
+        <p class="patient-name">{{ profile.fullName }}</p>
       </div>
-      <button class="connect-button">Connect</button>
     </div>
   </div>
 </div>

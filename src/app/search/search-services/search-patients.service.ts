@@ -8,7 +8,7 @@ import { Patient } from '../search-models/patient';
   providedIn: 'root'
 })
 export class SearchPatientsService {
-  private apiUrl = '/api/v1/medical-record/patient';
+  private apiUrl = 'http://localhost:8080/api/v1/profile/search';
 
   constructor(private http: HttpClient) {}
 
@@ -17,6 +17,19 @@ export class SearchPatientsService {
       catchError(error => {
         console.error('Error fetching patients:', error);
         return throwError(() => new Error('Failed to fetch patients. Please try again later.'));
+      })
+    );
+  }
+
+  searchProfilesByName(name: string): Observable<Patient[]> {
+    const searchUrl = `${this.apiUrl}?name=${name}`;
+    return this.http.get<Patient[]>(searchUrl).pipe(
+      catchError(error => {
+        console.error('Error searching profiles:', error);
+        if (error.status === 200 && typeof error.error === 'string') {
+          console.error('Response is not JSON:', error.error);
+        }
+        return throwError(() => new Error('Failed to search profiles. Please try again later.'));
       })
     );
   }

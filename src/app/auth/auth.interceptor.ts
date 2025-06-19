@@ -20,6 +20,11 @@ export class AuthInterceptor implements HttpInterceptor {
       })
       : request;
 
+    if (!token) {
+      console.warn('No token found, redirecting to login.');
+      this.authService.logout();
+    }
+
     return next.handle(authRequest);
   }
 }
