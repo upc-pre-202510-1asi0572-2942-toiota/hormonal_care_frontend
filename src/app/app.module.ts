@@ -46,7 +46,7 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
     ProfileComponent,
     CreateComponent,
     NotFoundComponent,
-    ScheduleComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -72,8 +72,8 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
     MatDatepicker,
     HomeComponent,
     MatSidenavContainer,
-    MatMomentDateModule
-
+    MatMomentDateModule,
+    ScheduleComponent
   ],
   providers: [
     AuthService,
