@@ -8,7 +8,7 @@ import { Patient } from '../search-models/patient';
   providedIn: 'root'
 })
 export class SearchPatientsService {
-  private apiUrl = 'http://localhost:8080/api/v1/profile/search';
+  private apiUrl = 'http://localhost:8080/api/v1/medical-record/patient/search';
 
   constructor(private http: HttpClient) {}
 
