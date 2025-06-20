@@ -5,7 +5,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 
 @Component({
-  selector: 'app-schedule',
+  selector: 'app-components',
   standalone: true,
   imports: [CommonModule, FullCalendarModule],
   templateUrl: './schedule.component.html',
