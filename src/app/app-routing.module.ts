@@ -6,7 +6,7 @@ import { SelectRoleComponent } from './auth/register/select-role/select-role.com
 import { ProfileComponent } from './profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
 import { HomeComponent } from './home/home/home.component';
-import { ScheduleComponent } from './schedule/components/schedule.component';
+import { ScheduleComponent } from './appointment/pages/schedule/schedule.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { AuthGuard } from './auth/auth.guard';

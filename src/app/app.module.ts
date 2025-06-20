@@ -35,8 +35,8 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatSidenavContainer} from '@angular/material/sidenav';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
-import { ScheduleComponent } from './schedule/components/schedule.component';
 import { SearchPatientsComponent } from './search/search-patients/search-patients.component';
+import { ScheduleComponent } from './appointment/pages/schedule/schedule.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,7 +46,6 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
     ProfileComponent,
     CreateComponent,
     NotFoundComponent,
-
   ],
   imports: [
     BrowserModule,
