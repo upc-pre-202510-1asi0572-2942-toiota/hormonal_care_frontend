@@ -33,22 +33,28 @@ export class LoginComponent {
       this.authService.login(credentials).subscribe({
         next: (response) => {
           const userId = response.id;
+          const userRole = response.role;
 
-          this.profileService.getProfileByUserId(userId).subscribe({
-            next: (profile) => {
-              // Perfil encontrado, redirige al home
-              this.router.navigate(['/home']);
-            },
-            error: (err) => {
-              if (err.status === 404) {
-                // Perfil no encontrado, redirige a crear perfil
-                this.router.navigate(['/profile/create']);
-              } else {
-                // Otro error
-                console.error('Error al obtener el perfil:', err);
+          if (userRole === 'ROLE_DOCTOR') {
+            // Consultar datos del doctor
+            this.authService.getDoctorByUserId(userId).subscribe({
+              next: (doctor) => {
+                // Guardar el nombre completo del doctor en localStorage o en el servicio si es necesario
+                localStorage.setItem('doctorFullName', doctor.fullName);
+                // Redirigir al home
+                this.router.navigate(['/home']);
+              },
+              error: (err) => {
+                console.error('Error al obtener datos del doctor:', err);
               }
-            }
-          });
+            });
+          } else if (userRole === 'ROLE_PATIENT') {
+            // Por ahora, permite el acceso normal a home para pacientes
+            this.router.navigate(['/home']);
+          } else {
+            // Otros roles, redirige a login o maneja según sea necesario
+            this.router.navigate(['/login']);
+          }
         },
         error: (error) => {
           console.error('Login fallido:', error);

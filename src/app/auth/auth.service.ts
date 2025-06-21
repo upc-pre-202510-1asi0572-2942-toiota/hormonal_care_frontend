@@ -32,7 +32,6 @@ export class AuthService {
 
     return this.http.post<AuthResponse>(`${this.apiUrl}/api/v1/authentication/sign-in`, credentials, { headers }).pipe(
       tap(response => {
-        console.log("error a revisar: ",response);
         localStorage.setItem('authToken', response.token);
         localStorage.setItem('currentUser', JSON.stringify({
           id: response.id,
@@ -64,5 +63,9 @@ export class AuthService {
 
   isAuthenticated(): boolean {
     return !!this.getToken();
+  }
+
+  getDoctorByUserId(userId: number): Observable<{ fullName: string }> {
+    return this.http.get<{ fullName: string }>(`${this.apiUrl}/api/v1/doctor/by-user/${userId}`);
   }
 }

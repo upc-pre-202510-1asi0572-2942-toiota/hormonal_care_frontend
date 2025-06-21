@@ -29,7 +29,7 @@ import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth.guard';
 import { AuthInterceptor } from './auth/auth.interceptor';
 import {SelectRoleComponent} from './auth/register/select-role/select-role.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './profile/pages/profile/profile.component';
 import { CreateComponent } from './profile/create/create.component';
 import { PatientListComponent } from './home/patient-list/patient-list.component';
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
@@ -37,6 +37,8 @@ import {MatSidenavContainer} from '@angular/material/sidenav';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { SearchPatientsComponent } from './search/search-patients/search-patients.component';
 import { ScheduleComponent } from './appointment/pages/schedule/schedule.component';
+import { DoctorProfileComponent } from './profile/components/doctor-profile/doctor-profile.component';
+import { PatientProfileComponent } from './profile/components/patient-profile/patient-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { ScheduleComponent } from './appointment/pages/schedule/schedule.compone
     ProfileComponent,
     CreateComponent,
     NotFoundComponent,
+    DoctorProfileComponent,
+    PatientProfileComponent,
   ],
   imports: [
     BrowserModule,
