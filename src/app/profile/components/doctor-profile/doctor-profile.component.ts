@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { DoctorProfile } from '../../models/doctor-profile';
 
 @Component({
   selector: 'app-doctor-profile',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './doctor-profile.component.html',
   styleUrl: './doctor-profile.component.css'
 })
-export class DoctorProfileComponent {
+export class DoctorProfileComponent implements OnInit {
+  @Input() doctor!: DoctorProfile;
 
+  ngOnInit(): void {}
 }

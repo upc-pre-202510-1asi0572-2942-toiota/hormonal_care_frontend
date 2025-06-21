@@ -1,1 +1,11 @@
-<p>doctor-profile works!</p>
+<div *ngIf="doctor">
+  <img [src]="doctor.image" alt="Doctor Image" width="100" height="100" />
+  <h2>{{ doctor.fullName }}</h2>
+  <p><strong>Género:</strong> {{ doctor.gender }}</p>
+  <p><strong>Teléfono:</strong> {{ doctor.phoneNumber }}</p>
+  <p><strong>Fecha de nacimiento:</strong> {{ doctor.birthday }}</p>
+  <p><strong>Número de colegiatura:</strong> {{ doctor.professionalIdentificationNumber }}</p>
+  <p><strong>Subespecialidad:</strong> {{ doctor.subSpecialty }}</p>
+  <p><strong>ID de perfil:</strong> {{ doctor.profileId }}</p>
+  <p><strong>ID de registro médico:</strong> {{ doctor.doctorRecordId }}</p>
+</div>
