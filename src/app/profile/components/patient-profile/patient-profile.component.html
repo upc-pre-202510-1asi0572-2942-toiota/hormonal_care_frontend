@@ -1,12 +1,14 @@
-<div *ngIf="patient">
-  <img [src]="patient.image" alt="Patient Image" width="100" height="100" />
-  <h2>{{ patient.fullName }}</h2>
-  <p><strong>Género:</strong> {{ patient.gender }}</p>
-  <p><strong>Teléfono:</strong> {{ patient.phoneNumber }}</p>
-  <p><strong>Fecha de nacimiento:</strong> {{ patient.birthday }}</p>
-  <p><strong>Tipo de sangre:</strong> {{ patient.typeOfBlood }}</p>
-  <p><strong>Historia personal:</strong> {{ patient.personalHistory }}</p>
-  <p><strong>Historia familiar:</strong> {{ patient.familyHistory }}</p>
-  <p><strong>ID de doctor:</strong> {{ patient.doctorId }}</p>
-  <p><strong>ID de perfil:</strong> {{ patient.profileId }}</p>
+<div class="patient-profile-container" *ngIf="patient">
+  <img class="patient-profile-img" [src]="patient.image" alt="Patient Image" width="64" height="64" />
+  <div class="patient-profile-info">
+    <h1 class="patient-profile-name">{{ patient.fullName }}</h1>
+    <div class="patient-profile-data">
+      <span><strong>Birthday:</strong> {{ patient.birthday }}</span>
+      <span><strong>Gender:</strong> {{ patient.gender }}</span>
+      <span><strong>Phone:</strong> {{ patient.phoneNumber }}</span>
+    </div>
+    <div class="patient-specific-data">
+      <span><strong>Type of Blood:</strong> {{ patient.typeOfBlood }}</span>
+    </div>
+  </div>
 </div>

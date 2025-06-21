@@ -1,0 +1,53 @@
+.doctor-profile-container {
+  display: flex;
+  align-items: flex-start;
+  background: #fff;
+  padding: 32px 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+}
+
+.doctor-profile-img {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 32px;
+  border: 3px solid #e0e0e0;
+  background: #f0f0f0;
+}
+
+.doctor-profile-info {
+  flex: 1;
+}
+
+.doctor-profile-name {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0 0 12px 0;
+  color: #222;
+}
+
+.doctor-profile-data {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.doctor-specific-data{
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 32px;
+  font-size: 1.05rem;
+  color: #444;
+}
+
+.doctor-profile-details span {
+  min-width: 180px;
+  margin-bottom: 6px;
+}

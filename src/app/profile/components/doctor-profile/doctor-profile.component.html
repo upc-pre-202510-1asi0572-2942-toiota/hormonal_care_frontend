@@ -1,11 +1,15 @@
-<div *ngIf="doctor">
-  <img [src]="doctor.image" alt="Doctor Image" width="100" height="100" />
-  <h2>{{ doctor.fullName }}</h2>
-  <p><strong>Género:</strong> {{ doctor.gender }}</p>
-  <p><strong>Teléfono:</strong> {{ doctor.phoneNumber }}</p>
-  <p><strong>Fecha de nacimiento:</strong> {{ doctor.birthday }}</p>
-  <p><strong>Número de colegiatura:</strong> {{ doctor.professionalIdentificationNumber }}</p>
-  <p><strong>Subespecialidad:</strong> {{ doctor.subSpecialty }}</p>
-  <p><strong>ID de perfil:</strong> {{ doctor.profileId }}</p>
-  <p><strong>ID de registro médico:</strong> {{ doctor.doctorRecordId }}</p>
+<div class="doctor-profile-container" *ngIf="doctor">
+  <img class="doctor-profile-img" [src]="doctor.image" alt="Doctor Image" width="64" height="64" />
+  <div class="doctor-profile-info">
+    <h1 class="doctor-profile-name">{{ doctor.fullName }}</h1>
+    <div class="doctor-profile-data">
+      <span><strong>Birthday:</strong> {{ doctor.birthday }}</span>
+      <span><strong>Gender:</strong> {{ doctor.gender }}</span>
+      <span><strong>Phone:</strong> {{ doctor.phoneNumber }}</span>
+    </div>
+    <div class="doctor-specific-data">
+      <span><strong>RNE:</strong> {{ doctor.professionalIdentificationNumber }}</span>
+      <span><strong>Subspecialty:</strong> {{ doctor.subSpecialty }}</span>
+    </div>
+  </div>
 </div>
