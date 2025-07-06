@@ -42,7 +42,6 @@ import { PatientProfileComponent } from './profile/components/patient-profile/pa
 import { AddAppointmentComponent } from './appointment/components/add-appointment/add-appointment.component';
 import { DetailAppointmentComponent } from './appointment/components/detail-appointment/detail-appointment.component';
 import { EditAppointmentComponent } from './appointment/components/edit-appointment/edit-appointment.component';
-import { TodaysPatientsComponent } from './appointment/pages/todays-patients/todays-patients.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +56,6 @@ import { TodaysPatientsComponent } from './appointment/pages/todays-patients/tod
     AddAppointmentComponent,
     DetailAppointmentComponent,
     EditAppointmentComponent,
-    TodaysPatientsComponent,
   ],
   imports: [
     BrowserModule,

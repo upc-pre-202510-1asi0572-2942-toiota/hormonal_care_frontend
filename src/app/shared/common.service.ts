@@ -90,7 +90,7 @@ export class CommonService {
 
 
     return this.http.post<any>(
-      `${this.apiUrl}/api/v1/medical-record/patient`,
+      `${this.apiUrl}/api/v1/patient`,
       formData,
       { params }
     );
@@ -119,11 +119,11 @@ export class CommonService {
     return this.http.post(this.apiUrl+"/api/v1/medicalAppointment", data);
   }
   getPatientsByDoctor(doctorId: number) {
-    return this.http.get<any[]>(this.apiUrl+`/api/v1/medical-record/patient/doctor/${doctorId}`);
+    return this.http.get<any[]>(this.apiUrl+`/api/v1/patient/doctor/${doctorId}`);
   }
 
   getPatientsByDoctorId(doctorId: number): Observable<any[]> {
-    return this.http.get<any[]>(`${this.apiUrl}/api/v1/medical-record/patient/doctor/${doctorId}`);
+    return this.http.get<any[]>(`${this.apiUrl}/api/v1/patient/doctor/${doctorId}`);
   }
   getProfileById(profileId: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/api/v1/profile/${profileId}`);

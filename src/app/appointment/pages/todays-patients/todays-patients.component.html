@@ -1,1 +1,40 @@
-<p>todays-patients works!</p>
+<!-- Loading, error y sin reuniones -->
+<div *ngIf="loading">Cargando reuniones de hoy...</div>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="!loading && !error && appointments.length === 0">No hay reuniones para hoy.</div>
+
+<!-- Lista de reuniones -->
+<div class="meetings-list">
+  <div *ngFor="let appt of appointments" class="meeting-card">
+    <!-- Cabecera: título + acciones (cámara y menú) -->
+    <div class="meeting-header">
+      <div class="meeting-title">{{ appt.title }}</div>
+      <div class="meeting-header-actions">
+        <a [href]="appt.description" target="_blank" class="camera-btn" title="Ir a la reunión">
+          <!-- Ícono SVG de cámara -->
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none">
+            <path d="M5 7H3v14h18V7h-2M5 7l2-3h10l2 3M5 7h14" stroke="white" stroke-width="2"/>
+            <circle cx="12" cy="14" r="4" stroke="white" stroke-width="2"/>
+          </svg>
+        </a>
+        <button class="menu-btn" title="Más opciones">&#8942;</button>
+      </div>
+    </div>
+
+    <!-- Info del meeting -->
+    <div class="meeting-info">
+      <div class="meeting-date">
+        {{ appt.eventDate | date:'EEEE, d MMMM' : undefined : 'en-US' }}
+      </div>
+      <div class="meeting-hour">
+        {{ appt.startTime }} - {{ appt.endTime }}
+      </div>
+      <div class="meeting-doctor">
+        <b>Host:</b> Dr. {{ appt.doctorName }}
+      </div>
+      <div class="meeting-patient">
+        <b>Participant:</b> {{ appt.patientName }} (patient)
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,107 @@
+/* Contenedor de la lista centrada y compacta */
+.meetings-list {
+    max-width: 600px; 
+    margin: 0 300px; /* centrado automático */
+    padding: 20px;
+  }
+  
+  /* Card individual */
+  .meeting-card {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 20px 24px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.06);
+    margin-bottom: 20px;
+    transition: box-shadow 0.2s ease;
+  }
+  
+  .meeting-card:hover {
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.10);
+  }
+  
+  /* Cabecera: título + acciones */
+  .meeting-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .meeting-title {
+    font-weight: 600;
+    font-size: 1.15rem;
+    color: #1E1E1E;
+  }
+  
+  .meeting-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* espacio entre cámara y menú */
+  }
+  
+  .menu-btn {
+    background: none;
+    border: none;
+    font-size: 1.4rem;
+    color: #9E9E9E;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  /* Información del meeting */
+  .meeting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.95rem;
+    color: #4A4A4A;
+  }
+  
+  .meeting-date {
+    font-weight: 500;
+    color: #616161;
+  }
+  
+  .meeting-hour {
+    color: #7A7A7A;
+  }
+  
+  .meeting-doctor,
+  .meeting-patient {
+    color: #333;
+  }
+  
+  /* Botón cámara en header */
+  .camera-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #6C3FC7;
+    border-radius: 12px;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(108, 63, 199, 0.2);
+    transition: background 0.2s ease;
+  }
+  
+  .camera-btn:hover {
+    background: #512DA8;
+  }
+  
+  .camera-btn svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .meeting-card {
+      padding: 16px;
+    }
+  }
+  

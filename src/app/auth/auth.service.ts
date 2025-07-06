@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, Observable, tap, map, catchError } from 'rxjs';
 import { Router } from '@angular/router';
 
 interface User {
@@ -67,5 +67,21 @@ export class AuthService {
 
   getDoctorByUserId(userId: number): Observable<{ fullName: string }> {
     return this.http.get<{ fullName: string }>(`${this.apiUrl}/api/v1/doctor/by-user/${userId}`);
+  }
+
+  getCurrentDoctorId(): Observable<number | null> {
+    const user = localStorage.getItem('currentUser');
+    const token = this.getToken();
+    if (!user || !token) {
+      return new Observable(observer => {
+        observer.next(null);
+        observer.complete();
+      });
+    }
+    const userId = JSON.parse(user).id;
+    return this.http.get<any>(`${this.apiUrl}/api/v1/doctor/by-user/${userId}`).pipe(
+      map(res => res.id ?? null),
+      catchError(() => [null])
+    );
   }
 }

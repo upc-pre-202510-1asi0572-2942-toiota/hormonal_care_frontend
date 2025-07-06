@@ -6,15 +6,7 @@
   <mat-sidenav-content class="content">
     <div class="main-content">
       <h2>Pacientes de Hoy</h2>
-      <mat-card *ngFor="let patient of patientsToday" class="patient-card">
-        <mat-card-title>{{ patient.name }}</mat-card-title>
-        <mat-card-content>
-          <p>{{ patient.details }}</p>
-          <button mat-raised-button color="primary" (click)="abrirMeet(patient.name)">
-            Iniciar Meet
-          </button>
-        </mat-card-content>
-      </mat-card>
+      <app-todays-patients></app-todays-patients>
     </div>
   </mat-sidenav-content>
 </mat-sidenav-container>
