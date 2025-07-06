@@ -1,1 +1,65 @@
-<p>add-appointment works!</p>
+<div class="add-appointment-container">
+  <h2>Agregar nueva cita</h2>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-group">
+      <label for="title">Título</label>
+      <input id="title" formControlName="title" type="text" (input)="onTitleChange()" required />
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label for="date">Fecha</label>
+        <input id="date" formControlName="date" type="date" required />
+      </div>
+      <div class="form-group">
+        <label for="startTime">Hora inicio</label>
+        <input id="startTime" formControlName="startTime" type="time" required />
+      </div>
+      <div class="form-group">
+        <label for="endTime">Hora fin</label>
+        <input id="endTime" formControlName="endTime" type="time" required />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="patientId">Paciente</label>
+      <div *ngIf="loadingPatients">Cargando pacientes...</div>
+      <div *ngIf="!loadingPatients && patients.length === 0">No hay pacientes disponibles.</div>
+      <select id="patientId" formControlName="patientId" required>
+        <option value="" disabled selected>Selecciona un paciente</option>
+        <option *ngFor="let patient of patients" [value]="patient.id">
+          {{ patient.fullName }}
+        </option>
+      </select>
+      <div class="patient-list">
+        <div *ngFor="let patient of patients" class="patient-item" [class.selected]="form.value.patientId === patient.id" (click)="form.patchValue({patientId: patient.id})">
+          <img *ngIf="patient.image" [src]="patient.image" alt="Foto" class="patient-img" />
+          <span>{{ patient.fullName }}</span>
+          <span *ngIf="form.value.patientId === patient.id" class="checkmark">✔</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="color">Color</label>
+      <select id="color" formControlName="color">
+        <option *ngFor="let color of colors" [value]="color.value">
+          {{ color.name }}
+        </option>
+      </select>
+      <div class="color-palette">
+        <div *ngFor="let color of colors" class="color-dot" [style.background]="color.value" [class.selected]="form.value.color === color.value" (click)="form.patchValue({color: color.value})"></div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Enlace de reunión (Jitsi)</label>
+      <input type="text" [value]="jitsiLink" readonly />
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" [disabled]="form.invalid">Guardar</button>
+      <button type="button" (click)="close()" class="cancel-btn">Cancelar</button>
+    </div>
+  </form>
+</div>

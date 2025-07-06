@@ -39,7 +39,6 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
 import { ScheduleComponent } from './appointment/pages/schedule/schedule.component';
 import { DoctorProfileComponent } from './profile/components/doctor-profile/doctor-profile.component';
 import { PatientProfileComponent } from './profile/components/patient-profile/patient-profile.component';
-import { AddAppointmentComponent } from './appointment/components/add-appointment/add-appointment.component';
 import { DetailAppointmentComponent } from './appointment/components/detail-appointment/detail-appointment.component';
 import { EditAppointmentComponent } from './appointment/components/edit-appointment/edit-appointment.component';
 @NgModule({
@@ -53,7 +52,6 @@ import { EditAppointmentComponent } from './appointment/components/edit-appointm
     NotFoundComponent,
     DoctorProfileComponent,
     PatientProfileComponent,
-    AddAppointmentComponent,
     DetailAppointmentComponent,
     EditAppointmentComponent,
   ],

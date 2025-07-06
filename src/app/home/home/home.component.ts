@@ -15,16 +15,9 @@ import { AuthService } from '../../auth/auth.service';
   standalone: true,
 
   imports: [
-    MatCard,
-    MatButton,
-    NgForOf,
-    MatSidenavContainer,
-    MatCardTitle,
-    MatCardContent,
-    MatSidenav,
-    MatSidenavModule,
     CommonModule,
-    TodaysPatientsComponent
+    TodaysPatientsComponent,
+    MatSidenavModule
   ],
 })
 export class HomeComponent implements OnInit {
