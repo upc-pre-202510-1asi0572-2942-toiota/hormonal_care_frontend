@@ -1,14 +1,60 @@
 .register-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #4b2067 0%, #6f1e9c 100%);
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
+  justify-content: center;
+}
+
+.register-bubbles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  background: #fff;
+  animation: moveBubbles 20s linear infinite;
+}
+
+.bubble1 { background: #7c3aed; }
+.bubble2 { background: #6d28d9; }
+.bubble3 { background: #a084e8; }
+.bubble4 { background: #7c3aed; }
+.bubble5 { background: #6d28d9; }
+.bubble6 { background: #a084e8; }
+.bubble7 { background: #7c3aed; }
+.bubble8 { background: #6d28d9; }
+.bubble9 { background: #a084e8; }
+.bubble10 { background: #7c3aed; }
+
+@keyframes moveBubbles {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-60px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
 }
 
 .register-card {
-  width: 400px;
-  padding: 2rem;
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.28) !important; /* Antes 0.18 */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 2rem 1.5rem;
+  color: #fff;
+  width: 420px;
+  min-width: 320px;
+  max-width: 95vw;
   text-align: center;
 }
 
@@ -16,7 +62,7 @@
   font-size: 1.8rem;
   font-weight: 500;
   margin-bottom: 2rem;
-  color: #3f51b5;
+  color: #fff;
 }
 
 .register-form {
@@ -29,10 +75,50 @@
   width: 100%;
 }
 
+mat-form-field {
+  color: #fff !important;
+}
+
+mat-label, .mat-form-field-label {
+  color: #fff !important;
+  opacity: 0.8;
+}
+
+input.mat-input-element, input {
+  color: #fff !important;
+  background: rgba(124, 58, 237, 0.18) !important;
+  border-radius: 8px;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 1000px #6d28d9 inset !important;
+  -webkit-text-fill-color: #fff !important;
+  caret-color: #fff !important;
+  border-radius: 8px;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.mat-form-field-underline, .mat-form-field-ripple {
+  background-color: #fff !important;
+}
+
+.mat-form-field-outline {
+  color: #fff !important;
+  border-color: #fff !important;
+}
+
 .register-button {
   margin-top: 1rem;
   padding: 0.5rem;
   font-size: 1rem;
+  background: #fff !important;
+  color: #6d28d9 !important;
+  border-radius: 2rem;
+  font-weight: bold;
+  box-shadow: 0 2px 8px 0 rgba(31, 38, 135, 0.10);
 }
 
 .login-redirect {
@@ -41,5 +127,22 @@
   justify-content: center;
   gap: 0.5rem;
   margin-top: 1.5rem;
-  color: #666;
+  color: #111;
+  text-align: center;
+}
+
+.login-redirect a, .login-redirect a:visited {
+  color: #111 !important;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 600px) {
+  .register-card {
+    width: 90vw;
+    min-width: unset;
+    padding: 1.5rem 0.5rem;
+  }
 }
