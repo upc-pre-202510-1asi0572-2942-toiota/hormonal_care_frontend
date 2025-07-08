@@ -2,13 +2,29 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-@Injectable({ providedIn: 'root' })
+export interface PatientData {
+  id: number;
+  fullName: string;
+  image: string | null;
+  gender: string;
+  phoneNumber: string;
+  birthday: string;
+  typeOfBlood: string;
+  personalHistory: string | null;
+  familyHistory: string | null;
+  doctorId: number;
+  profileId: number;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
 export class MedicalRecordService {
-  private apiUrl = 'http://localhost:8080/api/v1/patient';
+  private baseUrl = 'http://localhost:8080/api/v1';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
-  getMedicalRecordById(id: number): Observable<any> {
-    return this.http.get(`${this.apiUrl}/medical-record/${id}`);
+  getPatientData(patientId: number): Observable<PatientData> {
+    return this.http.get<PatientData>(`${this.baseUrl}/patient/${patientId}`);
   }
 }
