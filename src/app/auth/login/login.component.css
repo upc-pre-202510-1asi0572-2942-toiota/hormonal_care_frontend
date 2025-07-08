@@ -1,10 +1,66 @@
 .login-container {
+  position: relative;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #a18cd1 0%, #6f59b6 100%);
+  overflow: hidden;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5;
+  justify-content: center;
 }
+
+.login-bubbles-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.7; /* Antes 0.3 */
+  background: #fff;
+  animation: moveBubbles 20s linear infinite;
+}
+
+.bubble1 { width: 120px; height: 120px; left: 10%; top: 60%; animation-delay: 0s; background: #a084e8; }
+.bubble2 { width: 80px; height: 80px; left: 70%; top: 20%; animation-delay: 2s; background: #7c3aed; }
+.bubble3 { width: 100px; height: 100px; left: 50%; top: 80%; animation-delay: 4s; background: #6d28d9; }
+.bubble4 { width: 60px; height: 60px; left: 80%; top: 60%; animation-delay: 6s; background: #a084e8; }
+.bubble5 { width: 90px; height: 90px; left: 30%; top: 10%; animation-delay: 8s; background: #7c3aed; }
+.bubble6 { width: 70px; height: 70px; left: 60%; top: 40%; animation-delay: 10s; background: #6d28d9; }
+.bubble7 { width: 110px; height: 110px; left: 20%; top: 30%; animation-delay: 12s; background: #a084e8; }
+.bubble8 { width: 50px; height: 50px; left: 40%; top: 70%; animation-delay: 14s; background: #7c3aed; }
+.bubble9 { width: 100px; height: 100px; left: 80%; top: 10%; animation-delay: 16s; background: #6d28d9; }
+.bubble10 { width: 60px; height: 60px; left: 10%; top: 80%; animation-delay: 18s; background: #a084e8; }
+
+@keyframes moveBubbles {
+  0% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-60px) scale(1.1); }
+  100% { transform: translateY(0) scale(1); }
+}
+
+.login-card {
+  position: relative;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.28) !important; /* Antes 0.18 */
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(10px);
+  border-radius: 24px;
+  border: 1px solid rgba(255,255,255,0.18);
+  padding: 2rem 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .login-card {
+    width: 90vw;
+    min-width: unset;
+    padding: 1.5rem 0.5rem;
+  }
+}
+
 .centered-header {
   width: 100%;
   text-align: center;
@@ -12,12 +68,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-}
-
-.login-card {
-  width: 400px;
-  padding: 2rem;
-  text-align: center;
 }
 
 .welcome-title {
@@ -54,7 +104,16 @@
 
 .signup-section {
   margin: 1.5rem 0;
-  color: #666;
+  color: #111;
+  text-align: center;
+}
+
+.signup-section a, .signup-section a:visited {
+  color: #111 !important;
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
 }
 
 .divider {
@@ -75,6 +134,20 @@
   gap: 0.5rem;
   width: 100%;
   padding: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  color: #111;
+  border: 1px solid #111;
+  border-radius: 2rem;
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-weight: 600;
+  font-size: 1.05rem;
+  letter-spacing: 0.5px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.google-button:hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
 }
 
 .google-logo {
