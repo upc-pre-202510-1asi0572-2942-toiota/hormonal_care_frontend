@@ -20,7 +20,8 @@ export class MedicalRecordComponent implements OnInit {
   medicalRecordId!: number;
 
   ngOnInit(): void {
-    this.patientId = Number(this.route.snapshot.paramMap.get('id'));
+    // Obtener el ID desde la ruta padre (patients/medical-record/:id)
+    this.patientId = Number(this.route.parent?.snapshot.paramMap.get('id'));
     this.medicalRecordId = this.patientId;
     // Usar medicalRecordId para los endpoints
   }

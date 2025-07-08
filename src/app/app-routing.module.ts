@@ -11,7 +11,6 @@ import { MainLayoutComponent } from './layout/main-layout/main-layout.component'
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { AuthGuard } from './auth/auth.guard';
 import { SearchPatientsComponent } from './search/search-patients/search-patients.component';
-import { MedicalRecordComponent } from './medical-record/medical-record/medical-record.component';
 import { PatientsPageComponent } from './patients-page/patients-page.component';
 
 
@@ -32,12 +31,10 @@ const routes: Routes = [
       { path: 'search-patients', component: SearchPatientsComponent },
       { path: 'patients', component: PatientsPageComponent,
         children: [
-          { path: '', component: SearchPatientsComponent }, // opcional, para mostrar algo por defecto
-          { path: 'medical-record/:id', component: MedicalRecordComponent }
+          { path: '', component: SearchPatientsComponent },
+          { path: 'medical-record/:id', loadChildren: () => import('./medical-record/medical-record/medical-record.module').then(m => m.MedicalRecordModule) }
         ]
-      },
-      { path: 'medical-record', loadChildren: () => import('./medical-record/medical-record/medical-record.module').then(m => m.MedicalRecordModule) },
-
+      }
     ]
   },
   { path: '**', component: NotFoundComponent }

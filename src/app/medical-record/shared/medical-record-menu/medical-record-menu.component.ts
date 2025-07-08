@@ -15,7 +15,7 @@ import {RouterLink, RouterLinkActive} from '@angular/router';
 export class MedicalRecordMenuComponent {
   menuItems = [
     { label: 'Patient History', route: 'patient-history' },
-    { label: 'Diagnosis & Treatment', route: 'diagnosis-treatment' },
+    { label: 'Diagnosis & Treatment', route: 'diagnosis-and-treatment' },
     { label: 'Medical Tests', route: 'medical-tests' },
     { label: 'External Reports', route: 'external-reports' }
   ];

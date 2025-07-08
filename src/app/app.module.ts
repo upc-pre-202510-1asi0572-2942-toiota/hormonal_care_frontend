@@ -44,7 +44,6 @@ import { PatientsPageComponent } from './patients-page/patients-page.component';
 import {SearchPatientsComponent} from './search/search-patients/search-patients.component';
 import { MedicalRecordMenuComponent } from './medical-record/shared/medical-record-menu/medical-record-menu.component';
 import { RouterModule } from '@angular/router';
-import { MedicalRecordDiagnosisAndTreatmentComponent } from './medical-record/medical-record-diagnosis-and-treatment/medical-record-diagnosis-and-treatment.component';
 
 
 @NgModule({
@@ -58,8 +57,7 @@ import { MedicalRecordDiagnosisAndTreatmentComponent } from './medical-record/me
     NotFoundComponent,
     DoctorProfileComponent,
     PatientProfileComponent,
-    PatientProfileComponent,
-    MedicalRecordDiagnosisAndTreatmentComponent
+    PatientProfileComponent
   ],
   imports: [
     BrowserModule,
