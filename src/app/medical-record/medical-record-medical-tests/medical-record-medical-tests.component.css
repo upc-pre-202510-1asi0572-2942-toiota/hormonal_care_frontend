@@ -1,0 +1,147 @@
+.medical-tests-container {
+  padding: 20px;
+  width: 100%;
+}
+
+.tests-content {
+  width: 100%;
+}
+
+.tests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.test-card {
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.test-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.test-header {
+  background-color: #e8e8e8;
+  padding: 15px 20px;
+  border-bottom: 1px solid #d0d0d0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.test-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.test-date {
+  margin: 0;
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.download-btn {
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-1px);
+}
+
+.download-btn:active {
+  transform: translateY(0);
+}
+
+.test-content {
+  padding: 20px;
+}
+
+.test-result {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.result-label {
+  font-weight: 600;
+  color: #333;
+  font-size: 14px;
+}
+
+.result-value {
+  font-weight: 500;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.result-normal {
+  background-color: #e8f5e8;
+  color: #2e7d32;
+}
+
+.result-elevated {
+  background-color: #fff3e0;
+  color: #f57c00;
+}
+
+.result-low {
+  background-color: #e3f2fd;
+  color: #1976d2;
+}
+
+.result-other {
+  background-color: #f5f5f5;
+  color: #666;
+}
+
+.no-tests {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-data {
+  color: #666;
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .tests-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .medical-tests-container {
+    padding: 15px;
+  }
+
+  .test-header {
+    padding: 12px 15px;
+  }
+
+  .test-content {
+    padding: 15px;
+  }
+}
