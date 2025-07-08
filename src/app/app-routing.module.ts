@@ -14,6 +14,7 @@ import { SearchPatientsComponent } from './search/search-patients/search-patient
 import { MedicalRecordComponent } from './medical-record/medical-record/medical-record.component';
 import { PatientsPageComponent } from './patients-page/patients-page.component';
 
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
@@ -29,14 +30,14 @@ const routes: Routes = [
       { path: 'profile/create', component: CreateComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'search-patients', component: SearchPatientsComponent },
-      {
-        path: 'patients',
-        component: PatientsPageComponent,
+      { path: 'patients', component: PatientsPageComponent,
         children: [
           { path: '', component: SearchPatientsComponent }, // opcional, para mostrar algo por defecto
           { path: 'medical-record/:id', component: MedicalRecordComponent }
         ]
       },
+      { path: 'medical-record', loadChildren: () => import('./medical-record/medical-record/medical-record.module').then(m => m.MedicalRecordModule) },
+
     ]
   },
   { path: '**', component: NotFoundComponent }

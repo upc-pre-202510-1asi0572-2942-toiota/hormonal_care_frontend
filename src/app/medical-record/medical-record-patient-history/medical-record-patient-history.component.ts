@@ -1,25 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MedicalRecordService } from '../services/medical-record.service';
+// src/app/medical-record/medical-record-patient-history/medical-record-patient-history.component.ts
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-medical-record-patient-history',
-  templateUrl: './medical-record-patient-history.component.html',
+  template: `<p>Medical Record Patient History works!</p>`,
   styleUrls: ['./medical-record-patient-history.component.css']
 })
-export class MedicalRecordPatientHistoryComponent implements OnInit {
-  personalHistory: string = 'Cargando...';
-  familyHistory: string = 'Cargando...';
-
-  constructor(private medicalRecordService: MedicalRecordService) {}
-
-  ngOnInit(): void {
-    this.loadPatientHistory();
-  }
-
-  private loadPatientHistory(): void {
-    this.medicalRecordService.getPatientHistory().subscribe((data) => {
-      this.personalHistory = data.personalHistory || 'No hay información disponible.';
-      this.familyHistory = data.familyHistory || 'No hay información disponible.';
-    });
-  }
-}
+export class MedicalRecordPatientHistoryComponent {}
