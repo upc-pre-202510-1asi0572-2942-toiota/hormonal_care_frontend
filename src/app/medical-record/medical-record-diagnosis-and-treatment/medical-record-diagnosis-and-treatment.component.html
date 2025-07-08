@@ -1,0 +1,28 @@
+<div class="diagnosis-treatment-container">
+  <div class="loading" *ngIf="loading">
+    <p>Loading treatments...</p>
+  </div>
+
+  <div class="error" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="treatments-content" *ngIf="!loading && !error">
+    <div class="treatments-grid" *ngIf="treatments.length > 0; else noTreatments">
+      <div class="treatment-card" *ngFor="let treatment of treatments; let i = index">
+        <div class="treatment-header">
+          <h4>Treatment {{ i + 1 }}</h4>
+        </div>
+        <div class="treatment-description">
+          <p>{{ treatment.description }}</p>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noTreatments>
+      <div class="no-treatments">
+        <p class="no-data">No treatments have been recorded for this patient.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>

@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
+
 
 import { SearchPatientsService } from '../search-services/search-patients.service';
 import { Patient } from '../search-models/patient';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-search-patients',
@@ -16,10 +19,15 @@ export class SearchPatientsComponent implements OnInit {
   searchQuery: string = '';
   profiles: Patient[] = [];
   loading: boolean = false;
+  routeIsActive: any;
 
-  constructor(private searchService: SearchPatientsService) {}
+  constructor(
+    private searchService: SearchPatientsService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit(): void {}
+ngOnInit(): void {}
 
   onSearch(): void {
     if (this.searchQuery.trim()) {
@@ -40,7 +48,7 @@ export class SearchPatientsComponent implements OnInit {
     }
   }
 
-  onCardClick(profile: Patient): void {
-    console.log('Card clicked:', profile);
+  onCardClick(patient: Patient) {
+    this.router.navigate(['/patients/medical-record', patient.id]);
   }
 }

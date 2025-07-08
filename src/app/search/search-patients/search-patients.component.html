@@ -1,24 +1,27 @@
-<div class="search-container">
-  <div class="search-header">
-    <input
-      type="text"
-      placeholder="Press Enter to search profiles"
-      class="search-input"
-      [(ngModel)]="searchQuery"
-      (keyup.enter)="onSearch()"
-    />
-  </div>
+<!-- src/app/search/search-patients/search-patients.component.html -->
+<div class="search-patients-layout" style="display: flex; height: 100%;">
+  <div class="search-container" style="width: 100%;">
+    <div class="search-header">
+      <input
+        type="text"
+        placeholder="Press Enter to search profiles"
+        class="search-input"
+        [(ngModel)]="searchQuery"
+        (keyup.enter)="onSearch()"
+      />
+    </div>
 
-  <div *ngIf="loading" class="preloader">
-    <p>Searching...</p>
-    <div class="spinner"></div>
-  </div>
+    <div *ngIf="loading" class="preloader">
+      <p>Searching...</p>
+      <div class="spinner"></div>
+    </div>
 
-  <div class="patient-list" *ngIf="!loading">
-    <div class="patient-card" *ngFor="let profile of profiles" (click)="onCardClick(profile)">
-      <img [src]="profile.image || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="Profile Image" class="patient-image" />
-      <div class="patient-info">
-        <p class="patient-name">{{ profile.fullName }}</p>
+    <div class="patient-list" *ngIf="!loading">
+      <div class="patient-card" *ngFor="let profile of profiles" (click)="onCardClick(profile)">
+        <img [src]="profile.image || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'" alt="Profile Image" class="patient-image" />
+        <div class="patient-info">
+          <p class="patient-name">{{ profile.fullName }}</p>
+        </div>
       </div>
     </div>
   </div>

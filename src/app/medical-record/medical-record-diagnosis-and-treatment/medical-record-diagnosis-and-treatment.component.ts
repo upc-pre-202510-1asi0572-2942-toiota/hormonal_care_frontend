@@ -1,21 +1,20 @@
-// src/app/medical-record/medical-record-patient-history/medical-record-patient-history.component.ts
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { MedicalRecordService, PatientData } from '../services/medical-record.service';
+import { MedicalRecordService, Treatment } from '../services/medical-record.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
 
 @Component({
-  selector: 'app-medical-record-patient-history',
-  templateUrl: './medical-record-patient-history.component.html',
-  styleUrls: ['./medical-record-patient-history.component.css'],
+  selector: 'app-medical-record-diagnosis-and-treatment',
+  templateUrl: './medical-record-diagnosis-and-treatment.component.html',
+  styleUrls: ['./medical-record-diagnosis-and-treatment.component.css'],
   imports: [CommonModule]
 })
-export class MedicalRecordPatientHistoryComponent implements OnInit, OnDestroy {
-  patientData: PatientData | null = null;
+export class MedicalRecordDiagnosisAndTreatmentComponent implements OnInit, OnDestroy {
+  treatments: Treatment[] = [];
   loading = true;
   error: string | null = null;
-  patientId!: number;
+  medicalRecordId!: number;
   private routeSubscription: Subscription = new Subscription();
 
   constructor(
@@ -29,8 +28,8 @@ export class MedicalRecordPatientHistoryComponent implements OnInit, OnDestroy {
     if (parentRoute) {
       this.routeSubscription = parentRoute.params.subscribe(params => {
         if (params['id']) {
-          this.patientId = Number(params['id']);
-          this.loadPatientData();
+          this.medicalRecordId = Number(params['id']);
+          this.loadTreatments();
         }
       });
     }
@@ -40,20 +39,20 @@ export class MedicalRecordPatientHistoryComponent implements OnInit, OnDestroy {
     this.routeSubscription.unsubscribe();
   }
 
-  private loadPatientData(): void {
-    if (this.patientId) {
+  private loadTreatments(): void {
+    if (this.medicalRecordId) {
       this.loading = true;
       this.error = null;
 
-      this.medicalRecordService.getPatientData(this.patientId).subscribe({
+      this.medicalRecordService.getTreatments(this.medicalRecordId).subscribe({
         next: (data) => {
-          this.patientData = data;
+          this.treatments = data;
           this.loading = false;
         },
         error: (error) => {
-          this.error = 'Error al cargar los datos del paciente';
+          this.error = 'Error loading treatments data';
           this.loading = false;
-          console.error('Error loading patient data:', error);
+          console.error('Error loading treatments:', error);
         }
       });
     }

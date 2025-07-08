@@ -1,12 +1,35 @@
-<div class="patient-history">
-  <div class="history-container">
-    <h2>Personal History: </h2>
-    <!-- Contenido estático para Personal History -->
-    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+<div class="patient-history-container">
+  <div class="loading" *ngIf="loading">
+    <p>Cargando historial del paciente...</p>
   </div>
-  <div class="history-container">
-    <h2>Family History: </h2>
-    <!-- Contenido estático para Family History -->
-    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+
+  <div class="error" *ngIf="error">
+    <p>{{ error }}</p>
+  </div>
+
+  <div class="history-content" *ngIf="!loading && !error && patientData">
+    <div class="history-section">
+      <h3>Historial Personal</h3>
+      <div class="history-box">
+        <p *ngIf="patientData.personalHistory; else noPersonalHistory">
+          {{ patientData.personalHistory }}
+        </p>
+        <ng-template #noPersonalHistory>
+          <p class="no-data">No personal history has been recorded for this patient.</p>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="history-section">
+      <h3>Historial Familiar</h3>
+      <div class="history-box">
+        <p *ngIf="patientData.familyHistory; else noFamilyHistory">
+          {{ patientData.familyHistory }}
+        </p>
+        <ng-template #noFamilyHistory>
+          <p class="no-data">No familiar history has been recorded for this patient.</p>
+        </ng-template>
+      </div>
+    </div>
   </div>
 </div>
