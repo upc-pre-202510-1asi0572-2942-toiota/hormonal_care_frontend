@@ -12,8 +12,7 @@ import { MedicalRecordExternalReportsComponent } from '../medical-record-externa
 
 @NgModule({
   declarations: [
-    MedicalRecordMedicalTestsComponent,
-    MedicalRecordDiagnosisAndTreatmentComponent
+    MedicalRecordMedicalTestsComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +22,7 @@ import { MedicalRecordExternalReportsComponent } from '../medical-record-externa
     MedicalRecordPatientProfileComponent,
     MedicalRecordMenuComponent,
     MedicalRecordPatientHistoryComponent,
+    MedicalRecordDiagnosisAndTreatmentComponent,
     MedicalRecordExternalReportsComponent
   ]
 })

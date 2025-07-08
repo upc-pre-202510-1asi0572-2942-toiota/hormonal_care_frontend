@@ -1,0 +1,96 @@
+.diagnosis-treatment-container {
+  padding: 20px;
+  width: 100%;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+}
+
+.treatments-content {
+  width: 100%;
+}
+
+.treatments-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+}
+
+.treatment-card {
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.treatment-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.treatment-header {
+  background-color: #e8e8e8;
+  padding: 15px 20px;
+  border-bottom: 1px solid #d0d0d0;
+}
+
+.treatment-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.treatment-description {
+  padding: 20px;
+}
+
+.treatment-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+  font-size: 14px;
+}
+
+.no-treatments {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.no-data {
+  color: #666;
+  font-style: italic;
+  font-size: 16px;
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .treatments-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .diagnosis-treatment-container {
+    padding: 15px;
+  }
+
+  .treatment-header {
+    padding: 12px 15px;
+  }
+
+  .treatment-description {
+    padding: 15px;
+  }
+}

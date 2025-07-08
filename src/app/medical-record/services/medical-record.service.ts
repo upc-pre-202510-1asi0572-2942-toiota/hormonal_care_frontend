@@ -16,6 +16,11 @@ export interface PatientData {
   profileId: number;
 }
 
+export interface Treatment {
+  description: string;
+  medicalRecordId: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -26,5 +31,9 @@ export class MedicalRecordService {
 
   getPatientData(patientId: number): Observable<PatientData> {
     return this.http.get<PatientData>(`${this.baseUrl}/patient/${patientId}`);
+  }
+
+  getTreatments(medicalRecordId: number): Observable<Treatment[]> {
+    return this.http.get<Treatment[]>(`${this.baseUrl}/medical-record/treatments/medicalRecordId/${medicalRecordId}`);
   }
 }
