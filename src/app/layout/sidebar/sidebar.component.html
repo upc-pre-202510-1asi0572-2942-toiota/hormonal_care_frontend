@@ -20,6 +20,12 @@
         </a>
       </li>
       <li>
+        <a routerLink="/profile" routerLinkActive="router-link-active">
+          <i class="material-icons">person</i>
+          <span>Profile</span>
+        </a>
+      </li>
+      <li>
         <a routerLink="/chats" routerLinkActive="router-link-active">
           <i class="material-icons">chat</i>
           <span>Chats</span>
@@ -32,23 +38,17 @@
         </a>
       </li>
       <li>
-        <a routerLink="/profile" routerLinkActive="router-link-active">
-          <i class="material-icons">person</i>
-          <span>Profile</span>
-        </a>
-      </li>
-      <li>
         <a (click)="toggleBackgroundColor()">
           <i class="material-icons">light_mode</i>
           <span>Light Mode</span>
         </a>
       </li>
-      <li>
+      <!-- <li>
         <a routerLink="/view-plans" routerLinkActive="router-link-active">
           <i class="material-icons">grade</i>
           <span>View Plans</span>
         </a>
-      </li>
+      </li> -->
     </ul>
   </nav>
 

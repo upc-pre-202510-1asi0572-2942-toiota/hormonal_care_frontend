@@ -1,10 +1,16 @@
-<!-- Loading, error y sin reuniones -->
-<div *ngIf="loading">Cargando reuniones de hoy...</div>
-<div *ngIf="error">{{ error }}</div>
-<div *ngIf="!loading && !error && appointments.length === 0">No hay reuniones para hoy.</div>
 
-<!-- Lista de reuniones -->
+<!-- Card de reloj -->
 <div class="meetings-list">
+  <div class="meeting-card clock-card">
+    <div class="clock-time">{{ currentTime }}</div>
+    <div class="clock-date">{{ currentDate }}</div>
+  </div>
+<!-- Loading, error y sin reuniones -->
+<div *ngIf="loading">Loading today's meetings...</div>
+<div *ngIf="error">{{ error }}</div>
+<div *ngIf="!loading && !error && appointments.length === 0">There are no meetings today.</div>
+
+  <!-- Lista de reuniones -->
   <div *ngFor="let appt of appointments" class="meeting-card">
     <!-- Cabecera: título + acciones (cámara y menú) -->
     <div class="meeting-header">

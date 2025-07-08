@@ -27,9 +27,16 @@ export class TodaysPatientsComponent implements OnInit {
   loading = true;
   error: string | null = null;
 
+  // Reloj
+  currentTime: string = '';
+  currentDate: string = '';
+  private timer: any;
+
   constructor(private appointmentService: AppointmentService, private http: HttpClient, private authService: AuthService) {}
 
   ngOnInit(): void {
+    this.updateClock();
+    this.timer = setInterval(() => this.updateClock(), 1000);
     this.authService.getCurrentDoctorId().subscribe(doctorId => {
       if (doctorId) {
         this.fetchTodaysAppointments(doctorId);
@@ -38,6 +45,18 @@ export class TodaysPatientsComponent implements OnInit {
         this.error = 'No se pudo obtener el doctorId.';
       }
     });
+  }
+
+  ngOnDestroy(): void {
+    if (this.timer) clearInterval(this.timer);
+  }
+
+  updateClock() {
+    const now = new Date();
+    // Hora en formato 24h: 21:53
+    this.currentTime = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: false });
+    // Fecha: Monday, June 2
+    this.currentDate = now.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
   }
 
   fetchTodaysAppointments(doctorId: number) {
