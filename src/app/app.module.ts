@@ -35,10 +35,19 @@ import { PatientListComponent } from './home/patient-list/patient-list.component
 import {MatDatepicker, MatDatepickerInput, MatDatepickerToggle} from '@angular/material/datepicker';
 import {MatSidenavContainer} from '@angular/material/sidenav';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
-import { SearchPatientsComponent } from './search/search-patients/search-patients.component';
 import { ScheduleComponent } from './appointment/pages/schedule/schedule.component';
 import { DoctorProfileComponent } from './profile/components/doctor-profile/doctor-profile.component';
 import { PatientProfileComponent } from './profile/components/patient-profile/patient-profile.component';
+import { MedicalRecordComponent } from './medical-record/medical-record/medical-record.component';
+import { MedicalRecordPatientProfileComponent } from './medical-record/medical-record-patient-profile/medical-record-patient-profile.component';
+import { PatientsPageComponent } from './patients-page/patients-page.component';
+import {SearchPatientsComponent} from './search/search-patients/search-patients.component';
+import { MedicalRecordMenuComponent } from './medical-record/shared/medical-record-menu/medical-record-menu.component';
+import { RouterModule } from '@angular/router';
+import { DiagnosisAndTreatmentComponent } from './medical-record/diagnosis-and-treatment/diagnosis-and-treatment.component';
+import { MedicalRecordDiagnosisAndTreatmentComponent } from './medical-record/medical-record-diagnosis-and-treatment/medical-record-diagnosis-and-treatment.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,6 +59,9 @@ import { PatientProfileComponent } from './profile/components/patient-profile/pa
     NotFoundComponent,
     DoctorProfileComponent,
     PatientProfileComponent,
+    PatientProfileComponent,
+    DiagnosisAndTreatmentComponent,
+    MedicalRecordDiagnosisAndTreatmentComponent
   ],
   imports: [
     BrowserModule,
@@ -76,7 +88,9 @@ import { PatientProfileComponent } from './profile/components/patient-profile/pa
     HomeComponent,
     MatSidenavContainer,
     MatMomentDateModule,
-    ScheduleComponent
+    ScheduleComponent,
+    MedicalRecordComponent,
+    PatientsPageComponent
   ],
   providers: [
     AuthService,

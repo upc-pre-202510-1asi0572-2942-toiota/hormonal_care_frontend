@@ -10,7 +10,9 @@ import { ScheduleComponent } from './appointment/pages/schedule/schedule.compone
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { NotFoundComponent } from './shared/public/not-found/not-found.component';
 import { AuthGuard } from './auth/auth.guard';
-import {SearchPatientsComponent} from './search/search-patients/search-patients.component';
+import { SearchPatientsComponent } from './search/search-patients/search-patients.component';
+import { MedicalRecordComponent } from './medical-record/medical-record/medical-record.component';
+import { PatientsPageComponent } from './patients-page/patients-page.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -27,9 +29,17 @@ const routes: Routes = [
       { path: 'profile/create', component: CreateComponent },
       { path: 'schedule', component: ScheduleComponent },
       { path: 'search-patients', component: SearchPatientsComponent },
-    ],
+      {
+        path: 'patients',
+        component: PatientsPageComponent,
+        children: [
+          { path: '', component: SearchPatientsComponent }, // opcional, para mostrar algo por defecto
+          { path: 'medical-record/:id', component: MedicalRecordComponent }
+        ]
+      },
+    ]
   },
-  { path: '**', component: NotFoundComponent },
+  { path: '**', component: NotFoundComponent }
 ];
 
 @NgModule({
