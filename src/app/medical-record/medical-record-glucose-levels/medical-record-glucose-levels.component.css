@@ -1,0 +1,74 @@
+.patient-history-container {
+  padding: 20px;
+  width: 100%;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 20px;
+  font-size: 16px;
+}
+
+.error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  border: 1px solid #ffcdd2;
+  border-radius: 4px;
+}
+
+.history-content {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+.history-section {
+  flex: 1;
+  min-width: 0;
+}
+
+.history-section h3 {
+  margin: 0 0 15px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #333;
+}
+
+.history-box {
+  background-color: #F0F0F0;
+  border-radius: 8px;
+  padding: 10px 20px;
+  display: inline-block;
+  border: 1px solid #e0e0e0;
+}
+
+.history-box p {
+  margin: 0;
+  line-height: 1.6;
+  color: #333;
+  font-size: 14px;
+  display: flex; /* Alinea los elementos en una fila */
+  justify-content: space-between; /* Agrega espacio horizontal entre los elementos */
+}
+.no-data {
+  color: #666;
+  font-style: italic;
+}
+
+
+.history-content-wrapper {
+  display: flex;
+  gap: 1px;
+  width: 30%;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .history-content {
+    flex-direction: column;
+  }
+
+  .patient-history-container {
+    padding: 15px;
+  }
+}

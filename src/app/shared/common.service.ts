@@ -41,7 +41,7 @@ export interface PatientProfile {
 })
 export class CommonService {
   constructor(private http: HttpClient) {}
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com';
 
 
   getProfileByUserId(userId: number) {

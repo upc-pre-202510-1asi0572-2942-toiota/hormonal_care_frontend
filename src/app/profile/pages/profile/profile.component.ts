@@ -24,10 +24,10 @@ export class ProfileComponent implements OnInit {
     this.userId = currentUser?.id || null;
 
     if (this.userRole === 'ROLE_DOCTOR' && this.userId) {
-      this.http.get<DoctorProfile>(`http://localhost:8080/api/v1/doctor/by-user/${this.userId}`)
+      this.http.get<DoctorProfile>(`https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/doctor/by-user/${this.userId}`)
         .subscribe(profile => this.doctorProfile = profile);
     } else if (this.userRole === 'ROLE_PATIENT' && this.userId) {
-      this.http.get<PatientProfile>(`http://localhost:8080/api/v1/patient/by-user/${this.userId}`)
+      this.http.get<PatientProfile>(`https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/patient/by-user/${this.userId}`)
         .subscribe(profile => this.patientProfile = profile);
     }
   }

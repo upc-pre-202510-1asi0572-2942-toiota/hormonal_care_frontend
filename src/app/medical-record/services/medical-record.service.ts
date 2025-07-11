@@ -25,7 +25,7 @@ export interface Treatment {
   providedIn: 'root'
 })
 export class MedicalRecordService {
-  private baseUrl = 'http://localhost:8080/api/v1';
+  private baseUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1';
 
   constructor(private http: HttpClient) { }
 
