@@ -18,7 +18,7 @@ interface AuthResponse {
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private apiUrl = 'http://localhost:8080';
+  private apiUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com';
   private currentUserSubject = new BehaviorSubject<User | null>(null);
 
   constructor(private http: HttpClient, private router: Router) {}

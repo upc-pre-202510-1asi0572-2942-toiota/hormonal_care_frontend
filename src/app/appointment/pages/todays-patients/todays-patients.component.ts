@@ -95,14 +95,14 @@ export class TodaysPatientsComponent implements OnInit {
   }
 
   getDoctorName(doctorId: number): Promise<string> {
-    return this.http.get<any>(`http://localhost:8080/api/v1/doctor/${doctorId}`)
+    return this.http.get<any>(`https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/doctor/${doctorId}`)
       .toPromise()
       .then(res => res.fullName)
       .catch(() => 'Desconocido');
   }
 
   getPatientName(patientId: number): Promise<string> {
-    return this.http.get<any>(`http://localhost:8080/api/v1/patient/${patientId}`)
+    return this.http.get<any>(`https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/patient/${patientId}`)
       .toPromise()
       .then(res => res.fullName)
       .catch(() => 'Desconocido');

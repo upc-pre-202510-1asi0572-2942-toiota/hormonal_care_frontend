@@ -9,6 +9,9 @@ import { MedicalRecordRoutingModule } from './medical-record-routing.module';
 import { MedicalRecordPatientHistoryComponent } from '../medical-record-patient-history/medical-record-patient-history.component';
 import { MedicalRecordDiagnosisAndTreatmentComponent } from '../medical-record-diagnosis-and-treatment/medical-record-diagnosis-and-treatment.component';
 import { MedicalRecordExternalReportsComponent } from '../medical-record-external-reports/medical-record-external-reports.component';
+import {
+  MedicalRecordGlucoseLevelsComponent
+} from '../medical-record-glucose-levels/medical-record-glucose-levels.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +26,8 @@ import { MedicalRecordExternalReportsComponent } from '../medical-record-externa
     MedicalRecordMenuComponent,
     MedicalRecordPatientHistoryComponent,
     MedicalRecordDiagnosisAndTreatmentComponent,
-    MedicalRecordExternalReportsComponent
+    MedicalRecordExternalReportsComponent,
+    MedicalRecordGlucoseLevelsComponent
   ]
 })
 export class MedicalRecordModule { }

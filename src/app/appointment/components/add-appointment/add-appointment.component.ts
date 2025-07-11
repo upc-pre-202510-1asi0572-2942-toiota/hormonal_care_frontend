@@ -67,7 +67,7 @@ export class AddAppointmentComponent implements OnInit {
     this.authService.getCurrentDoctorId().subscribe(doctorId => {
       this.doctorId = doctorId;
       if (doctorId) {
-        this.http.get<Patient[]>(`http://localhost:8080/api/v1/patient/doctor/${doctorId}`).subscribe(patients => {
+        this.http.get<Patient[]>(`https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/patient/doctor/${doctorId}`).subscribe(patients => {
           this.patients = patients;
           this.loadingPatients = false;
         }, () => this.loadingPatients = false);
@@ -100,7 +100,7 @@ export class AddAppointmentComponent implements OnInit {
       patientId,
       color
     };
-    this.http.post('http://localhost:8080/api/v1/medicalAppointment', appointment).subscribe({
+    this.http.post('https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/medicalAppointment', appointment).subscribe({
       next: () => this.dialogRef.close(true),
       error: () => alert('Error al crear la cita')
     });

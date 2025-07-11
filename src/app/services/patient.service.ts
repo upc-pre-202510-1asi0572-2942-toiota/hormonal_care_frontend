@@ -18,7 +18,7 @@ export interface Patient {
 
 @Injectable({ providedIn: 'root' })
 export class PatientService {
-  private apiUrl = 'http://localhost:8080/api/v1/patient';
+  private apiUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/patient';
 
   constructor(private http: HttpClient) {}
 

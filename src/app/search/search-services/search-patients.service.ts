@@ -8,7 +8,7 @@ import { Patient } from '../search-models/patient';
   providedIn: 'root'
 })
 export class SearchPatientsService {
-  private apiUrl = 'http://localhost:8080/api/v1/patient/search';
+  private apiUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/patient/search';
 
   constructor(private http: HttpClient) {}
 

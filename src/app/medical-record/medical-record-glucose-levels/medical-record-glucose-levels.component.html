@@ -1,0 +1,26 @@
+<div class="patient-history-container">
+  <div class="loading" *ngIf="loading">
+    <p>Cargando niveles de glucosa...</p>
+  </div>
+
+  <div class="history-content-wrapper">
+    <div class="history-section">
+
+      <div class="history-box">
+        <h3>Glucose Levels</h3>
+        <div *ngFor="let level of glucoseLevels">
+          <p>{{ level.time.split(':')[0] + ':' + level.time.split(':')[1] }}  &nbsp;&nbsp;&nbsp;&nbsp;     {{ level.glucoseLevel }} mg/dL</p>
+        </div>
+      </div>
+    </div>
+
+      <div class="history-section">
+          <div class="history-box">
+              <h3>Insulin History</h3>
+              <div *ngFor="let level of insulinLevels">
+                  <p>{{ level.time.split(':')[0] + ':' + level.time.split(':')[1] }} &nbsp;&nbsp;&nbsp;&nbsp; {{ level.insulinUnits }}</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

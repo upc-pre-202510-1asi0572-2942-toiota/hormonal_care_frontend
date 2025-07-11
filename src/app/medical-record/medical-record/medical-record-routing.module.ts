@@ -5,6 +5,9 @@ import { MedicalRecordMedicalTestsComponent } from '../medical-record-medical-te
 import { MedicalRecordPatientHistoryComponent } from '../medical-record-patient-history/medical-record-patient-history.component';
 import { MedicalRecordDiagnosisAndTreatmentComponent } from '../medical-record-diagnosis-and-treatment/medical-record-diagnosis-and-treatment.component';
 import { MedicalRecordExternalReportsComponent } from '../medical-record-external-reports/medical-record-external-reports.component';
+import {
+  MedicalRecordGlucoseLevelsComponent
+} from '../medical-record-glucose-levels/medical-record-glucose-levels.component';
 
 const routes: Routes = [
   {
@@ -15,6 +18,7 @@ const routes: Routes = [
       { path: 'medical-tests', component: MedicalRecordMedicalTestsComponent },
       { path: 'diagnosis-and-treatment', component: MedicalRecordDiagnosisAndTreatmentComponent },
       { path: 'external-reports', component: MedicalRecordExternalReportsComponent },
+      {path: 'glucose-levels', component:MedicalRecordGlucoseLevelsComponent},
       { path: '', redirectTo: 'patient-history', pathMatch: 'full' }
     ]
   }

@@ -9,7 +9,7 @@ import { switchMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AppointmentService {
-  private baseUrl = 'http://localhost:8080/api/v1/medicalAppointment';
+  private baseUrl = 'https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/medicalAppointment';
 
   constructor(private http: HttpClient, private authService: AuthService) {}
 
@@ -55,7 +55,7 @@ export class AppointmentService {
   }
 
   getDoctorIdByUserId(userId: number, token: string): Observable<any> {
-    const url = `http://localhost:8080/api/v1/doctor/by-user/${userId}`;
+    const url = `https://hormonalcarebackend-9c81ad662b45.herokuapp.com/api/v1/doctor/by-user/${userId}`;
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
